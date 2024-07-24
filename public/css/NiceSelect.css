@@ -1,0 +1,57 @@
+.nice-select {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    
+    font-family: Nexabold;
+    background-color: #f8f9fa;;
+  }
+  
+  .nice-select.disabled {
+    cursor: not-allowed;
+  }
+  
+  .nice-select .current {
+    display: block;
+    padding: 10px;
+    background-color: #f8f9fa;;
+    border-radius: 4px;
+    font-family: Nexabold;
+
+    
+  }
+  
+  .nice-select.open .list {
+    display: block;
+  }
+  
+  .nice-select .list {
+    display: none;
+    position: absolute;
+    z-index: 1000;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    max-height: 200px;
+    overflow-y: auto;
+  }
+  
+  .nice-select .option {
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .nice-select .option.selected {
+    background-color: #f0f0f0;
+  }
+  
+  .nice-select .option.disabled {
+    cursor: not-allowed;
+    color: #ccc;
+  }
+  
+  .nice-select .option:hover {
+    background-color: #f0f0f0;
+  }
+  
