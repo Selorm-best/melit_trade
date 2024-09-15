@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import QRCode from 'qrcode.react';
-
+import emailjs from '@emailjs/browser';
 
 const QuoteForm = () => {
+  const form = useRef();
   const [formData, setFormData] = useState({
     fullName: '',
     companyName: '',
@@ -33,9 +34,21 @@ const QuoteForm = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const sendEmail = (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
+
+    emailjs
+      .sendForm('service_9em7hiq', 'template_0hr2pl9', form.current, {
+        publicKey: 'sf26lZpdpTMK2_Agb',
+      })
+      .then(
+        () => {
+          console.log('SUCCESS!');
+        },
+        (error) => {
+          console.log('FAILED...', error.text);
+        },
+      );
   };
 
   return (
@@ -44,7 +57,7 @@ const QuoteForm = () => {
         <h2>Get a Quote Form</h2>
         <p> Please fill out the form below to request a detailed quote for our services. Provide as much information as possible to ensure an accurate and timely response.</p>
       </div>
-      <form onSubmit={handleSubmit} className="quote-form">
+      <form ref={form} onSubmit={sendEmail} className="quote-form">
         <div className="form-section">
           <h3>Contact Information</h3>
           <div className="form-group">
