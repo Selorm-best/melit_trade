@@ -38,9 +38,7 @@ const QuoteForm = () => {
     e.preventDefault();
 
     emailjs
-      .sendForm('service_9em7hiq', 'template_0hr2pl9', form.current, {
-        publicKey: 'sf26lZpdpTMK2_Agb',
-      })
+      .sendForm('service_2wf34dl', 'template_0hr2pl9', form.current, 'sf26lZpdpTMK2_Agb')
       .then(
         () => {
           console.log('SUCCESS!');
