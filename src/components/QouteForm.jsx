@@ -39,7 +39,7 @@ const QuoteForm = () => {
 
     console.log('Form Data:', formData);
     emailjs
-      .sendForm('service_9em7hiq', 'template_0hr2pl9', form.current, 'sf26lZpdpTMK2_Agb')
+      .sendForm('service_2wf34dl', 'template_0hr2pl9', form.current, 'sf26lZpdpTMK2_Agb')
       .then(
         () => {
           console.log('SUCCESS!');
