@@ -85,10 +85,10 @@ const HomePage = () => {
   <p>Save time and money with our comprehensive logistics solutions for individuals and businesses. From personalized procurement to tech-driven solutions, our services streamline your operations so you can focus on what matters most.
   Explore our tailored services below to discover how we can meet your unique needs.
   </p> */}
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-8 text-center">
-        <span class="service_text ">Explore Our Services</span>
+  <div className="container">
+    <div className="row justify-content-center">
+      <div className="col-md-8 text-center">
+        <span className="service_text ">Explore Our Services</span>
         <p className='service_ptext'>
           Save time and money with our comprehensive logistics solutions for individuals and businesses. Our services streamline your operations so you can focus on what matters most.
           Explore our tailored services below to discover how we can meet your unique needs.
@@ -105,7 +105,7 @@ const HomePage = () => {
   {/* Banner Section Begin */}
   {/* <section className="banner spad_banner">
     <div className="container">
-      <span class="Product_showcase">Top Products</span>
+      <span className="Product_showcase">Top Products</span>
       <div className='banner-container'> */}
       {/* <div className="row">
         <div className="col-lg-7 offset-lg-4">  
@@ -153,9 +153,9 @@ const HomePage = () => {
     </div>
   </section> */}
   <section className='Product_modal spad_banner'>
-  <div class="row justify-content-center">
-      <div class="col-md-6 text-center">
-        <span class="Product_showcase">Top Products</span>
+  <div className="row justify-content-center">
+      <div className="col-md-6 text-center">
+        <span className="Product_showcase">Top Products</span>
         <p className='service_ptext'>
         Browse our selection of top products, representing the quality and diversity of items we can procure. Whether you're looking
         for these specific items or need help sourcing something else, our team is ready to meet your procurement needs.
