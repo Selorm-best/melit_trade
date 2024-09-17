@@ -6,7 +6,7 @@ const Team = () => {
     { name: 'Melvin Y. Adongo', role: 'Executive Director', imgSrc: 'img/about/melvin.jpeg', location:'Ghana' },
     { name: 'Otis K. Ledlum', role: 'Director of International Operations', imgSrc: 'img/about/otis.jpeg', location:'China' },
     { name: 'Vanessa E. Van-Dyke', role: 'Director of Communications', imgSrc: 'img/about/vanessa.jpeg', location:'Ghana' },
-    { name: 'Jacob T. Tetteh', role: 'International Operations Manager', imgSrc: 'img/about/jacob.jpeg', location:'Ghana'},
+    { name: 'Jacob T. Tetteh', role: 'International Operations Manager', imgSrc: 'img/about/jacob.jpeg', location:'China'},
     { name: 'Percy N. Hansen', role: 'Logistics Manager', imgSrc: 'img/about/Nii.jpg', location:'Ghana' },
     { name: 'James K. Sekyi', role: 'Operations Manager', imgSrc: 'img/about/james.jpeg', location:'Ghana' },
     { name: 'Ebenezer Tseh', role: 'Software Engineer', imgSrc: 'img/about/Eben.png', location:'U.S.A'},
