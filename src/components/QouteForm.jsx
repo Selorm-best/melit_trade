@@ -4,6 +4,7 @@ import emailjs from '@emailjs/browser';
 
 const QuoteForm = () => {
   const form = useRef();
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     fullName: '',
     companyName: '',
@@ -36,6 +37,7 @@ const QuoteForm = () => {
 
   const sendEmail = (e) => {
     e.preventDefault();
+    setLoading(true);
 
     emailjs
       .sendForm('melittrade', 'template_0hr2pl9', form.current, 'sf26lZpdpTMK2_Agb')
@@ -47,6 +49,7 @@ const QuoteForm = () => {
           console.log('FAILED...', error.text);
         },
       );
+      setLoading(false);
   };
 
   return (
@@ -146,7 +149,9 @@ const QuoteForm = () => {
             </div>
 
 
-        <button type="submit" className="submit-button">SUBMIT REQUEST</button>
+        <button type="submit" className="submit-button" disabled={loading}>
+          {loading? 'Sending...' :"SUBMIT REQUEST"}
+          </button>
       </form>
       <div className="qr-code mt-4 text-center">
         <h3>Scan to Get a Quote</h3>

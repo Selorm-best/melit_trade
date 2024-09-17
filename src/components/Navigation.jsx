@@ -58,17 +58,17 @@ const Navigation = () => {
        
 
 
-            <div class="wrapper">	<nav id="sidebar_e"> 
-            <ul class="list-unstyled components">
+            <div className="wrapper">	<nav id="sidebar_e"> 
+            <ul className="list-unstyled components">
            
             <li className={getActiveClass("/")}><Link to="/">Home</Link></li>
               <li className={getActiveClass("/products")}><Link to="/products">Products</Link></li>
               <li className={getActiveClass("/quotes")}><Link to="/quotes">Get Quote</Link></li>
               <li className={getActiveClass("/tracking")}><Link to="/tracking">Tracking</Link></li>
               <li className={getActiveClass("/about")}><Link to="/about">About Us</Link></li>
-            <li>	<a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">More</a>	
-            <ul class="collapse list-unstyled" id="pageSubmenu" >
-              <div class="menu-back">
+            <li>	<a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" className="dropdown-toggle">More</a>	
+            <ul className="collapse list-unstyled" id="pageSubmenu" >
+              <div className="menu-back">
               <li className={getActiveClass("/blog")}><Link to="#">Blog</Link></li>
               <li className={getActiveClass("/contact")}><Link to="/#">Contact Us</Link></li>
              
