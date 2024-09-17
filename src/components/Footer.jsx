@@ -15,6 +15,7 @@ const Footer = () => {
             </div>
             <p>Your Trusted Global Procurement Partner, Ensuring Seamless and Reliable Delivery Solutions.</p>
             <a href="#"><img src="img/payment.png" alt /></a>
+            <a href="#"><img src="img/mtnmomo.png" width="50%" height="50%" alt /></a>
           </div>
         </div>
         <div className="col-lg-2 offset-lg-1 col-md-3 col-sm-6">

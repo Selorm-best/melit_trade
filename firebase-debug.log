@@ -1,0 +1,30 @@
+[debug] [2024-09-17T22:48:20.868Z] ----------------------------------------------------------------------
+[debug] [2024-09-17T22:48:20.874Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Japheth Selorm\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2024-09-17T22:48:20.874Z] CLI Version:   13.17.0
+[debug] [2024-09-17T22:48:20.874Z] Platform:      win32
+[debug] [2024-09-17T22:48:20.874Z] Node Version:  v20.15.0
+[debug] [2024-09-17T22:48:20.875Z] Time:          Tue Sep 17 2024 22:48:20 GMT+0000 (Coordinated Universal Time)
+[debug] [2024-09-17T22:48:20.875Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-09-17T22:48:20.976Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-09-17T22:48:20.977Z] > authorizing via signed-in user (japhethselorm@gmail.com)
+[debug] [2024-09-17T22:48:20.977Z] [iam] checking project melittrade for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2024-09-17T22:48:20.980Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/melittrade:testIamPermissions [none]
+[debug] [2024-09-17T22:48:20.980Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/melittrade:testIamPermissions x-goog-quota-user=projects/melittrade
+[debug] [2024-09-17T22:48:20.981Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/melittrade:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2024-09-17T22:48:22.505Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/melittrade:testIamPermissions 200
+[debug] [2024-09-17T22:48:22.506Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/melittrade:testIamPermissions {}
+[debug] [2024-09-17T22:48:22.506Z] [iam] error while checking permissions, command may fail: FirebaseError: Authorization failed. This account is missing the following required permissions on project melittrade:
+
+  firebase.projects.get
+  firebasehosting.sites.update
+[debug] [2024-09-17T22:48:22.508Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/melittrade [none]
+[debug] [2024-09-17T22:48:23.293Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/melittrade 403
+[debug] [2024-09-17T22:48:23.294Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/melittrade {"error":{"code":403,"message":"The caller does not have permission","status":"PERMISSION_DENIED"}}
+[debug] [2024-09-17T22:48:23.297Z] HTTP Error: 403, The caller does not have permission
+[debug] [2024-09-17T22:48:23.876Z] FirebaseError: HTTP Error: 403, The caller does not have permission
+    at responseToError (C:\Users\Japheth Selorm\AppData\Roaming\npm\node_modules\firebase-tools\lib\responseToError.js:49:12)
+    at RetryOperation._fn (C:\Users\Japheth Selorm\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:305:77)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[error] 
+[error] Error: Failed to get Firebase project melittrade. Please make sure the project exists and your account has permission to access it.
