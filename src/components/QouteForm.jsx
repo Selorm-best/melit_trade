@@ -38,7 +38,7 @@ const QuoteForm = () => {
     e.preventDefault();
 
     emailjs
-      .sendForm('service_2wf34dl', 'template_0hr2pl9', form.current, 'sf26lZpdpTMK2_Agb')
+      .sendForm('melittrade', 'template_0hr2pl9', form.current, 'sf26lZpdpTMK2_Agb')
       .then(
         () => {
           console.log('SUCCESS!');
