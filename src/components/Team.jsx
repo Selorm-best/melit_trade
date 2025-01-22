@@ -3,7 +3,7 @@ import React from 'react';
 
 const Team = () => {
   const teamMembers = [
-    { name: 'Melvin Y. Adongo', role: 'Executive Director', imgSrc: 'img/about/melvin.jpeg', location:'Ghana' },
+    { name: 'Melvin Y. Adongo', role: 'Chief Operating Officer(COO)', imgSrc: 'img/about/melvin.jpeg', location:'Ghana' },
     { name: 'Otis K. Ledlum', role: 'Director of International Operations', imgSrc: 'img/about/otis.jpeg', location:'China' },
     { name: 'Vanessa E. Van-Dyke', role: 'Director of Communications', imgSrc: 'img/about/vanessa.jpeg', location:'Ghana' },
     { name: 'Jacob T. Tetteh', role: 'International Operations Manager', imgSrc: 'img/about/jacob.jpeg', location:'China'},
