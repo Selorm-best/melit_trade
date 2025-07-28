@@ -22,7 +22,7 @@ const HeroItem = ({image, tagline1, tagline2, text}) => {
             <h6>{tagline1}</h6>
        
             <p>{text}</p>
-            <Link to={"/quotes"} className="primary-btn">Get a Qoute <span className="arrow_right" /></Link>
+            <Link to={"/quotes"} className="primary-btn">Get a Quote <span className="arrow_right" /></Link>
            
           </div>
         </div>

@@ -14,7 +14,6 @@ const Footer = () => {
               <Link to={"/"}><img src="img/fn_logo.png" alt /></Link>
             </div>
             <p>Your Trusted Global Procurement Partner, Ensuring Seamless and Reliable Delivery Solutions.</p>
-            <a href="#"><img src="img/payment.png" alt /></a>
             <a href="#"><img src="img/mtnmomo.png" width="50%" height="50%" alt /></a>
           </div>
         </div>
@@ -34,10 +33,8 @@ const Footer = () => {
           <div className="footer__widget">
             <h6>Working Hours</h6>
             <ul>
-              <li><a href="#">Weekdays: 9AM - 10PM</a></li>
-              <li><a href="#">Saturday: 9AM - 2PM </a></li>
-              <li><a href="#">Sundays: 2PM - 5PM</a></li>
-              <li><a href="#"></a></li>
+              <li><a href="#">Weekdays: 9AM - 5PM</a></li>
+              <li><a href="#">Saturday: 12PM - 4PM </a></li>
             </ul>
           </div>
         </div>
@@ -56,7 +53,7 @@ const Footer = () => {
                 <a href="tel:+233 53 879 7707">+233 53 879 7707</a>
               </p>
               <p>
-            <i className="fas fa-map-marker-alt"></i> <a href="#">Accra, Ghana</a>
+            <i className="fas fa-map-marker-alt"></i> <a href="#">Ashaley Botwe, Near Lakeside Shell</a>
         </p>
       </div>
     </div>
@@ -80,8 +77,8 @@ const Footer = () => {
          
        
         <div className="social-icons">
-          <a href='#'><FontAwesomeIcon icon={faInstagram} className="icon instagram" /></a>
-          <a href="#">< FontAwesomeIcon icon={faFacebook} className="icon facebook" /> </a>
+          <a href='https://instagram.com/YOUR_COMPANY_INSTAGRAM' target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faInstagram} className="icon instagram" /></a>
+          <a href="https://facebook.com/YOUR_COMPANY_FACEBOOK" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faFacebook} className="icon facebook" /> </a>
           <a href="#"><FontAwesomeIcon icon={faTwitter} className="icon twitter" /></a>
         </div>
     

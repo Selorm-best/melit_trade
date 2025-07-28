@@ -42,9 +42,9 @@ const Testimonials = () => {
                                     <span className="icon_quotations" />
                                     <p>{testimonial.text}</p>
                                     <div className="testimonial__author">
-                                        <div className="testimonial__author__pic">
+                                        {/* <div className="testimonial__author__pic">
                                             <img src={testimonial.imgSrc} alt={testimonial.author} />
-                                        </div>
+                                        </div> */}
                                         <div className="testimonial__author__text">
                                             <h5>{testimonial.author}</h5>
                                             <p>{testimonial.profession}</p>

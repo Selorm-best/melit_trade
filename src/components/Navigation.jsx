@@ -33,8 +33,8 @@ const Navigation = () => {
       <div className={`offcanvas-menu-wrapper ${isMenuActive ? 'active' : ''}`}>
         <div className="offcanvas__option">
           <div className="offcanvas__links">
-            <a href="#">Sign in</a>
-            <a href="#">FAQs</a>
+            {/* <a href="#">Sign in</a>
+            <a href="#">FAQs</a> */}
           </div>
           <div className="offcanvas__top__hover">
             <span>GH₵ <i className="arrow_carrot-down" /></span>
@@ -48,9 +48,9 @@ const Navigation = () => {
         <div className="offcanvas__nav__option">
             <a href="#"><FontAwesomeIcon icon={faSearch} style={{color:'#002240'}}/>
                   </a>
-                  <a href="#">
+                  {/* <a href="#">
                    <FontAwesomeIcon icon={faHeartRegular} style={{color:'#002240'}}/>
-            </a>
+            </a> */}
                   
 
         
@@ -70,7 +70,7 @@ const Navigation = () => {
             <ul className="collapse list-unstyled" id="pageSubmenu" >
               <div className="menu-back">
               <li className={getActiveClass("/blog")}><Link to="#">Blog</Link></li>
-              <li className={getActiveClass("/contact")}><Link to="/#">Contact Us</Link></li>
+              <li className={getActiveClass("/contact")}><Link to="/contact">Contact Us</Link></li>
              
               <li className={getActiveClass("/checkout")}><Link to="/#">Process Order</Link></li>
               <li className={getActiveClass("/blog-details")}><Link to="#">Blog Details</Link></li>
@@ -103,8 +103,8 @@ const Navigation = () => {
           <div className="col-lg-6 col-md-5">
             <div className="header__top__right">
               <div className="header__top__links">
-                <a href="#">Sign in</a>
-                <a href="#">FAQs</a>
+                {/* <a href="#">Sign in</a>
+                <a href="#">FAQs</a> */}
               </div>
               <div className="header__top__hover">
                 <span>GH₵ <i className="arrow_carrot-down" /></span>
@@ -136,16 +136,8 @@ const Navigation = () => {
                   <li className={getActiveClass("/quotes")}><Link to="/quotes">Get Quote</Link></li>
                   <li className={getActiveClass("/tracking")}><Link to="/tracking">Tracking</Link></li>
                   <li className={getActiveClass("/about")}><Link to="/about">About Us</Link></li>
-                  <li className="more">
-                    <a href="#">More</a>
-                    <ul className="dropdown">
-                      <li className={getActiveClass("/blog")}><Link to="#">Blog</Link></li>
-                      <li className={getActiveClass("/contact")}><Link to="#">Contact Us</Link></li>
-                 
-                      <li className={getActiveClass("/checkout")}><Link to="#">Process Order</Link></li>
-                      <li className={getActiveClass("/blog-details")}><Link to="#">Blog Details</Link></li>
-                    </ul>
-                  </li>
+                  <li className={getActiveClass("/contact")}><Link to="/contact">Contact Us</Link></li>
+                  
                 </ul>
               </nav>
           </div>
@@ -154,12 +146,9 @@ const Navigation = () => {
             <a href="#" className="search-switch">
                     <FontAwesomeIcon icon={faSearch} style={{color:'white'}}/>
                   </a>
-                  <a href="#">
+                  {/* <a href="#">
                    <FontAwesomeIcon icon={faHeartRegular} style={{color:'white'}}/>
-                  </a>
-                  
-
-             
+                  </a> */}
             </div>
           </div>
         </div>

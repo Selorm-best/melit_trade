@@ -8,9 +8,10 @@ import HomePage from './pages/HomePage';
 import About from './pages/About'
 import Service from './pages/Service'
 import Products from './pages/Products';
+import Contact from './pages/Contact';
 
 import Tracking from './pages/Tracking';
-import Reqoutes from './pages/Reqoutes';
+import QuoteForm from './components/QuoteForm';
 import "core-js/stable";
 import "regenerator-runtime/runtime";
 import 'core-js/features/promise';
@@ -44,13 +45,17 @@ children: [
 },
 {
   path: "/quotes",
-  element: <Reqoutes />
+  element: <QuoteForm />
 
 },
 {
   path: "/tracking",
   element: <Tracking />
 
+},
+{
+  path: "/contact",
+  element: <Contact />
 },
 
 ]

@@ -1631,7 +1631,6 @@ ol {
 	top: 0;
 	height: 300px;
 	width: 900px;
-	background: #ffffff;
 	z-index: -1;
 	content: "";
 	font-family: NexaBold !important;
@@ -1669,7 +1668,6 @@ ol {
 		top: 0;
 		height: 300px;
 		width: 900px;
-		background: #ffffff;
 		z-index: -1;
 		content: "";
 		font-family: NexaBold !important;
@@ -1700,7 +1698,6 @@ ol {
 	top: 0;
 	height: 300px;
 	width: 900px;
-	background: #ffffff;
 	z-index: -1;
 	content: "";
 	font-family: NexaBold !important;

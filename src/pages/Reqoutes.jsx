@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import Navigation from "../components/Navigation"
-import QuoteForm from "../components/QouteForm"
+import QuoteForm from "../components/QuoteForm"
 
 
 const Reqoutes = () => {
