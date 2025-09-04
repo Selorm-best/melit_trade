@@ -1,0 +1,45 @@
+[
+  {
+    "id": "team_001",
+    "name": "Mr James Adongo Asampua",
+    "role": "Managing Director",
+    "location": "Ghana",
+    "imgSrc": "img/about/james.jpeg"
+  },
+  {
+    "id": "team_002",
+    "name": "Melvin Y. Adongo",
+    "role": "Director of Operations",
+    "location": "Ghana",
+    "imgSrc": "img/about/melvin.jpeg"
+  },
+  {
+    "id": "team_003",
+    "name": "Otis K. Ledlum",
+    "role": "Director of International Operations",
+    "location": "China",
+    "imgSrc": "img/about/otis.jpeg"
+  },
+  {
+    "id": "team_004",
+    "name": "Jacob T. Tetteh",
+    "role": "International Operations Manager",
+    "location": "China",
+    "imgSrc": "img/about/jacob.jpeg"
+  },
+  {
+    "id": "team_005",
+    "name": "Percy N. Hansen",
+    "role": "Logistics Manager",
+    "location": "Ghana",
+    "imgSrc": "img/about/Nii.jpg"
+  },
+  {
+    "id": "team_006",
+    "name": "Ebenezer Tseh",
+    "role": "Software Engineer",
+    "location": "U.S.A",
+    "imgSrc": "img/about/Eben.png"
+  }
+]
+

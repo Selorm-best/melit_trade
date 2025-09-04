@@ -1,0 +1,17 @@
+[
+  {
+    "id": "testimonial_001",
+    "text": "Melit Trade has transformed our procurement process. Their expertise in sourcing from Mainland China and USA has saved us significant time and costs. Highly recommended!",
+    "author": "Mr Tieku Asare",
+    "profession": "Procurement Manager",
+    "imgSrc": "img/about/testimonial-author.jpg"
+  },
+  {
+    "id": "testimonial_002",
+    "text": "The team at Melit Trade is professional, responsive, and delivers exceptional results. They've become our trusted partner for all international sourcing needs.",
+    "author": "Mrs Clementia Bartels",
+    "profession": "Operations Director",
+    "imgSrc": "img/about/testimonial-author.jpg"
+  }
+]
+

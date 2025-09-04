@@ -94,7 +94,7 @@ const ServiceExplore = () => {
                       <div className="col-md-7">
                         <div className="procurement-content">
                           <h1>Consumer Procurement</h1>
-                          <p>Tailored procurement services to meet specific customer needs. Access to an extensive network of reliable suppliers in Mainland China. Negotiation of the best prices without compromising quality. Rigorous quality checks to ensure product standards.</p>
+                          <p>Tailored procurement services to meet specific customer needs. Access to an extensive network of reliable suppliers in Mainland China and USA. Negotiation of the best prices without compromising quality. Rigorous quality checks to ensure product standards.</p>
                           <div className="container my-4 fade-in">
                           <ul className="timeline">
                                 <li >

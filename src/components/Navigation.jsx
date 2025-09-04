@@ -134,23 +134,13 @@ const Navigation = () => {
                   <li className={getActiveClass("/")}><Link to="/">Home</Link></li>
                   <li className={getActiveClass("/products")}><Link to="/products">Products</Link></li>
                   <li className={getActiveClass("/quotes")}><Link to="/quotes">Get Quote</Link></li>
-                  <li className={getActiveClass("/tracking")}><Link to="/tracking">Tracking</Link></li>
                   <li className={getActiveClass("/about")}><Link to="/about">About Us</Link></li>
                   <li className={getActiveClass("/contact")}><Link to="/contact">Contact Us</Link></li>
                   
                 </ul>
               </nav>
           </div>
-          <div className="col-lg-2 col-md-3">
-            <div className="header__nav__option">
-            <a href="#" className="search-switch">
-                    <FontAwesomeIcon icon={faSearch} style={{color:'white'}}/>
-                  </a>
-                  {/* <a href="#">
-                   <FontAwesomeIcon icon={faHeartRegular} style={{color:'white'}}/>
-                  </a> */}
-            </div>
-          </div>
+          
         </div>
        
         

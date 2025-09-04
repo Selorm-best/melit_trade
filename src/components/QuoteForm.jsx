@@ -1,9 +1,13 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import QRCode from 'qrcode.react';
 import emailjs from '@emailjs/browser';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheckCircle, faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { useLocation } from 'react-router-dom';
 
 const QuoteForm = () => {
   const form = useRef();
+  const location = useLocation();
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     fullName: '',
@@ -19,6 +23,20 @@ const QuoteForm = () => {
     budgetRange: '',
     comments: '',
   });
+  const [submitted, setSubmitted] = useState(false);
+  const [productInfo, setProductInfo] = useState(null);
+
+  useEffect(() => {
+    // Check if product information was passed from VideoCard
+    if (location.state) {
+      setProductInfo(location.state);
+      // Pre-fill product description with the product name
+      setFormData(prev => ({
+        ...prev,
+        productDescription: `Quote request for: ${location.state.productName}`
+      }));
+    }
+  }, [location.state]);
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -42,22 +60,75 @@ const QuoteForm = () => {
     emailjs
       .sendForm('melittrade', 'template_0hr2pl9', form.current, 'sf26lZpdpTMK2_Agb')
       .then(
-        () => {
-          console.log('SUCCESS!');
+        (result) => {
+          console.log('SUCCESS!', result.text);
+          setSubmitted(true);
+          setFormData({
+            fullName: '',
+            companyName: '',
+            email: '',
+            phoneNumber: '',
+            serviceType: [],
+            productDescription: '',
+            quantity: '',
+            qualityStandards: '',
+            destinationAddress: '',
+            deliveryDate: '',
+            budgetRange: '',
+            comments: '',
+          });
+          // Scroll to top to show success message
+          window.scrollTo({ top: 0, behavior: 'smooth' });
         },
         (error) => {
           console.log('FAILED...', error.text);
-        },
-      );
-      setLoading(false);
+        }
+      )
+      .finally(() => {
+        setLoading(false);
+      });
   };
 
   return (
     <div className="quote-form-container quote_container">
+      {submitted && (
+        <div className="quote-success-alert">
+          <div className="success-content">
+            <div className="success-icon">
+              <FontAwesomeIcon icon={faCheckCircle} />
+            </div>
+            <div className="success-text">
+              <h3>Quote Request Submitted Successfully!</h3>
+              <p>Thank you for your inquiry. We'll review your requirements and get back to you within 24 hours with a detailed quote.</p>
+              <div className="success-arrow">
+                <FontAwesomeIcon icon={faArrowRight} />
+                <span>Your request is being processed</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+      
       <div className="section-title">
         <h2>Get a Quote Form</h2>
         <p> Please fill out the form below to request a detailed quote for our services. Provide as much information as possible to ensure an accurate and timely response.</p>
       </div>
+
+      {productInfo && (
+        <div className="product-quote-info">
+          <h3>Product Information</h3>
+          <div className="product-details">
+            <div className="product-image">
+              <img src={productInfo.productImage} alt={productInfo.productName} />
+            </div>
+            <div className="product-text">
+              <h4>{productInfo.productName}</h4>
+              <p><strong>Category:</strong> {productInfo.productCategory}</p>
+              {productInfo.productPrice && <p><strong>Price:</strong> {productInfo.productPrice}</p>}
+            </div>
+          </div>
+        </div>
+      )}
       <form ref={form} onSubmit={sendEmail} className="quote-form">
         <div className="form-section">
           <h3>Contact Information</h3>
@@ -84,28 +155,27 @@ const QuoteForm = () => {
           <div className="form-group">
             <label>Type of Service Needed (Select all that apply):</label>
             <div className="checkbox-group">
-            <div className="form-check">
-                <label className="form-check-label">Consumer Procurement</label>
-                <input type="checkbox" name="serviceType" value="Consumer Procurement" onChange={handleChange} />
+              <div className="checkbox-item">
+                <input type="checkbox" name="serviceType" value="Consumer Procurement" onChange={handleChange} id="procurement" />
+                <label htmlFor="procurement">Consumer Procurement</label>
+              </div>
+              <div className="checkbox-item">
+                <input type="checkbox" name="serviceType" value="Logistics" onChange={handleChange} id="logistics" />
+                <label htmlFor="logistics">Logistics</label>
+              </div>
+              <div className="checkbox-item">
+                <input type="checkbox" name="serviceType" value="Wholesale Services" onChange={handleChange} id="wholesale" />
+                <label htmlFor="wholesale">Wholesale Services</label>
+              </div>
+              <div className="checkbox-item">
+                <input type="checkbox" name="serviceType" value="Tech-Driven Solutions" onChange={handleChange} id="tech" />
+                <label htmlFor="tech">Tech-Driven Solutions</label>
+              </div>
+              <div className="checkbox-item">
+                <input type="checkbox" name="serviceType" value="Consulting Services" onChange={handleChange} id="consulting" />
+                <label htmlFor="consulting">Consulting Services</label>
+              </div>
             </div>
-            <div className="form-check">
-                <label className="form-check-label">Logistics </label>
-                <input type="checkbox" name="serviceType" value="Logistics" onChange={handleChange} />
-            </div>
-            <div className="form-check">
-                <label className="form-check-label">Wholesale Services</label>
-                <input type="checkbox" name="serviceType" value="Wholesale Services" onChange={handleChange} />
-            </div>
-            <div className="form-check">
-                <label className="form-check-label">Tech-Driven Solutions</label>
-                <input type="checkbox" name="serviceType" value="Tech-Driven Solutions" onChange={handleChange} />
-            </div>
-            <div className="form-check">
-                <label className="form-check-label">Consulting Services</label>
-                <input type="checkbox" name="serviceType" value="Consulting Services" onChange={handleChange} />
-            </div>
-            </div>
-
           </div>
         </div>
 
@@ -137,25 +207,29 @@ const QuoteForm = () => {
           </div>
         </div>
 
-            <div className="form-group">
-            <label>Upload Picture (Optional):</label>
-            <div className="file-upload-wrapper">
-                <input type="file" name="file" id="file-upload" />
-                <label htmlFor="file-upload" className="file-upload-label">
-                Choose File
-                </label>
-                <span id="file-upload-filename" className="file-upload-filename">No file chosen</span>
-            </div>
-            </div>
-
+        <div className="form-group">
+          <label>Upload Picture (Optional):</label>
+          <div className="file-upload-wrapper">
+            <input type="file" name="file" id="file-upload" />
+            <label htmlFor="file-upload" className="file-upload-label">
+              Choose File
+            </label>
+            <span id="file-upload-filename" className="file-upload-filename">No file chosen</span>
+          </div>
+        </div>
 
         <button type="submit" className="submit-button" disabled={loading}>
-          {loading? 'Sending...' :"SUBMIT REQUEST"}
-          </button>
+          {loading ? 'Sending...' : "SUBMIT REQUEST"}
+        </button>
       </form>
+      
       <div className="qr-code mt-4 text-center">
         <h3>Scan to Get a Quote</h3>
         <QRCode value="https://melittrade.com/quotes" />
+      </div>
+      
+      <div className="powered-by">
+        <p>Powered by <a href="https://domitechnologies.com" target="_blank" rel="noopener noreferrer">Domi Technologies</a></p>
       </div>
     </div>
   );

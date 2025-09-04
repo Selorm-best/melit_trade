@@ -1,0 +1,17 @@
+[
+  {
+    "id": "partner_001",
+    "name": "Mr Vitus Atanga Green",
+    "role": "Strategic Partner",
+    "location": "USA",
+    "imgSrc": "img/about/partner1.jpg"
+  },
+  {
+    "id": "partner_002",
+    "name": "Mr Kelly Sugri Ayimbila",
+    "role": "Strategic Partner",
+    "location": "USA",
+    "imgSrc": "img/about/partner2.jpg"
+  }
+]
+

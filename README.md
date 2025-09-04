@@ -1,70 +1,226 @@
-# Getting Started with Create React App
+# Melit Trade - Admin CMS
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A lightweight, secure Admin CMS for managing website content with a simple JSON file-based database.
 
-## Available Scripts
+## 🚀 Features
 
-In the project directory, you can run:
+- **Secure Authentication**: JWT-based authentication with HTTP-only cookies
+- **Content Management**: CRUD operations for Team, Partners, Testimonials, and Deals
+- **File Uploads**: Image management for team members, partners, and deals
+- **Public API**: RESTful endpoints for frontend integration
+- **Simple Database**: JSON file storage for easy deployment and maintenance
+- **Responsive Design**: Modern admin interface with Bootstrap 5
 
-### `npm start`
+## 🛠️ Technology Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Backend**: Node.js + Express.js
+- **Authentication**: JWT + bcryptjs
+- **File Uploads**: Multer
+- **Templating**: EJS
+- **Frontend**: Bootstrap 5 + Font Awesome
+- **Database**: JSON files (simple, file-based storage)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 📋 Prerequisites
 
-### `npm test`
+- Node.js (v14 or higher)
+- npm or yarn package manager
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🔧 Installation & Setup
 
-### `npm run build`
+### 1. Install Dependencies
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+npm install
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 2. Environment Configuration
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Create a `.env` file in the root directory (use `env.example` as template):
 
-### `npm run eject`
+```bash
+# Admin CMS Configuration
+ADMIN_USERNAME=admin
+ADMIN_PASSWORD=$2a$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewdBPj4J/8KqQKqG
+JWT_SECRET=melit_trade_super_secret_jwt_key_2024
+JWT_EXPIRES_IN=24h
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+# Server Configuration
+PORT=5000
+NODE_ENV=development
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# File Upload Configuration
+MAX_FILE_SIZE=5242880
+UPLOAD_PATH=public/uploads
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+**Default Admin Credentials:**
+- Username: `admin`
+- Password: `admin123`
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+**To generate a new password hash:**
+```bash
+node -e "const bcrypt = require('bcryptjs'); console.log(bcrypt.hashSync('your_password', 12));"
+```
 
-## Learn More
+### 3. Build React Frontend
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+npm run build
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 4. Start the Server
 
-### Code Splitting
+```bash
+# Development mode (concurrently runs both frontend and backend)
+npm run dev
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+# Production mode (backend only)
+npm run server
+```
 
-### Analyzing the Bundle Size
+## 🌐 Access Points
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- **Admin Panel**: http://localhost:5000/admin
+- **API Endpoints**: http://localhost:5000/api
+- **Frontend**: http://localhost:5000
 
-### Making a Progressive Web App
+## 📚 API Endpoints
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Public API (No Authentication Required)
 
-### Advanced Configuration
+```
+GET /api/team          - Get all team members
+GET /api/partners      - Get all partners
+GET /api/testimonials  - Get all testimonials
+GET /api/deal          - Get active deal of the week
+GET /api/deals         - Get all deals
+GET /api/health        - Health check
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Admin API (Authentication Required)
 
-### Deployment
+```
+POST   /admin/login           - Admin login
+POST   /admin/logout          - Admin logout
+GET    /admin/dashboard       - Admin dashboard
+GET    /admin/team            - Team management page
+POST   /admin/team            - Add team member
+PUT    /admin/team/:id        - Update team member
+DELETE /admin/team/:id        - Delete team member
+GET    /admin/partners        - Partners management page
+POST   /admin/partners        - Add partner
+PUT    /admin/partners/:id    - Update partner
+DELETE /admin/partners/:id    - Delete partner
+GET    /admin/testimonials    - Testimonials management page
+POST   /admin/testimonials    - Add testimonial
+PUT    /admin/testimonials/:id - Update testimonial
+DELETE /admin/testimonials/:id - Delete testimonial
+GET    /admin/deals           - Deals management page
+POST   /admin/deals           - Add deal
+PUT    /admin/deals/:id       - Update deal
+DELETE /admin/deals/:id       - Delete deal
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## 📁 Project Structure
 
-### `npm run build` fails to minify
+```
+melit-trade/
+├── server/                 # Backend server files
+│   ├── data/              # JSON data files (database)
+│   ├── middleware/        # Authentication middleware
+│   ├── routes/            # API and admin routes
+│   ├── utils/             # Utility functions
+│   ├── views/             # EJS templates
+│   └── server.js          # Main server file
+├── build/                 # React build output
+├── public/                # Static assets
+├── src/                   # React source code
+├── .env                   # Environment variables
+├── package.json           # Dependencies and scripts
+└── README.md             # This file
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 🔐 Security Features
+
+- **JWT Authentication**: Secure token-based authentication
+- **HTTP-only Cookies**: Prevents XSS attacks
+- **Password Hashing**: bcryptjs for secure password storage
+- **Input Validation**: Server-side validation for all inputs
+- **File Upload Security**: Type and size restrictions
+- **CORS Protection**: Configurable cross-origin policies
+
+## 📱 Frontend Integration
+
+The main React website can fetch data from the public API endpoints:
+
+```javascript
+// Example: Fetch team members
+const response = await fetch('/api/team');
+const team = await response.json();
+
+// Example: Fetch active deal
+const response = await fetch('/api/deal');
+const deal = await response.json();
+```
+
+## 🚀 Deployment
+
+### Development
+```bash
+npm run dev
+```
+
+### Production
+```bash
+npm run build
+npm run server
+```
+
+### Environment Variables for Production
+```bash
+NODE_ENV=production
+PORT=5000
+JWT_SECRET=your_super_secret_production_key
+ADMIN_USERNAME=your_admin_username
+ADMIN_PASSWORD=your_hashed_password
+```
+
+## 🛠️ Customization
+
+### Adding New Content Types
+
+1. Create new JSON data file in `server/data/`
+2. Add routes in `server/routes/admin.js`
+3. Create EJS template in `server/views/`
+4. Add API endpoint in `server/routes/api.js`
+
+### Modifying Admin Interface
+
+- Edit EJS templates in `server/views/`
+- Modify CSS styles in template `<style>` sections
+- Update JavaScript functionality in template `<script>` sections
+
+## 🔍 Troubleshooting
+
+### Common Issues
+
+1. **Port Already in Use**: Change PORT in .env file
+2. **Authentication Failed**: Check admin credentials and JWT secret
+3. **File Upload Errors**: Verify upload directory permissions
+4. **Data Not Loading**: Check JSON file syntax and permissions
+
+### Logs
+
+Check console output for detailed error messages and debugging information.
+
+## 📄 License
+
+This project is proprietary software for Melit Trade.
+
+## 🤝 Support
+
+For technical support or questions, contact the development team.
+
+---
+
+**Built with ❤️ for Melit Trade**

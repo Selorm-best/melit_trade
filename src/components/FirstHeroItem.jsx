@@ -38,7 +38,7 @@ const FirstHeroItem = ({ image }) => {
             <div className="hero__text_f">
               {/* <h6>Welcome to Melit Trade</h6> */}
              
-              <h2 className="tagline_f"><span className='w_wrap'>{displayText}<span className="caret_f"></span></span></h2>
+              <h2 className="tagline_f"><span className='w_wrap'>{displayText}</span></h2>
           
               <p>At Melit Trade, we bridge the gap between you and the world, providing seamless procurement solutions tailored to your needs. Our dedicated team ensures precision, efficiency, and reliability in every transaction.</p>
               <Link to={"quotes"}  className="primary-btn">Get a Quote <span className="arrow_right" /></Link>

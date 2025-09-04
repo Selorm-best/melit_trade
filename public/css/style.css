@@ -3032,11 +3032,11 @@ product__item_m {
 .footer {
 	background: #002240;
 	padding-top: 70px;
+	padding-bottom: 30px;
 }
 
 .footer__about {
 	margin-bottom: 30px;
-	margin-top: -19px;
 }
 
 .footer__about .footer__logo {
@@ -3056,6 +3056,7 @@ product__item_m {
 
 .footer__widget {
 	margin-bottom: 30px;
+	min-height: 200px;
 }
 
 .footer__widget h6 {
@@ -3072,10 +3073,33 @@ product__item_m {
 	line-height: 36px;
 	list-style: none;
 }
+.contact_info {
+	margin-bottom: 20px;
+}
+
+.contact_info p {
+	margin-bottom: 15px;
+	display: flex;
+	align-items: center;
+	color: #e9e9e9;
+	font-size: 14px;
+	font-family: NexaBold;
+}
+
+.contact_info p i {
+	margin-right: 10px;
+	color: #ffffff;
+	width: 16px;
+}
+
 .contact_info a {
-	padding: 15px;
-	color: white;
-	
+	color: #e9e9e9;
+	text-decoration: none;
+	transition: color 0.3s ease;
+}
+
+.contact_info a:hover {
+	color: #ffffff;
 }
 .footer__widget ul li a {
 	color: #e9e9e9;
@@ -3154,6 +3178,48 @@ product__item_m {
 
 .footer__copyright__text p a {
 	color: #e53637;
+}
+
+/* Footer Social Icons */
+.footer .social-icons {
+	margin-top: 20px;
+	display: flex;
+	gap: 15px;
+}
+
+.footer .social-icons a {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 40px;
+	height: 40px;
+	background: rgba(255, 255, 255, 0.1);
+	border-radius: 50%;
+	color: #ffffff;
+	text-decoration: none;
+	transition: all 0.3s ease;
+}
+
+.footer .social-icons a:hover {
+	background: rgba(255, 255, 255, 0.2);
+	transform: translateY(-2px);
+}
+
+.footer .social-icons .icon {
+	font-size: 18px;
+}
+
+/* Responsive Footer */
+@media (max-width: 768px) {
+	.footer__widget {
+		min-height: auto;
+		margin-bottom: 40px;
+	}
+	
+	.footer .social-icons {
+		justify-content: center;
+		margin-top: 15px;
+	}
 }
 
 /*---------------------
@@ -3771,25 +3837,32 @@ product__item_m {
   
   .checkbox-group {
 	display: grid;
-	grid-template-columns: 1fr auto;
-	gap: 10px;
+	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+	gap: 12px;
+  }
+
+  .checkbox-item {
+	display: flex;
 	align-items: center;
+	gap: 10px;
+	padding: 10px 12px;
+	border: 1px solid #e1e1e1;
+	border-radius: 6px;
+	background: #fff;
   }
-  
-  .form-check {
-	display: contents;
+
+  .checkbox-item input[type="checkbox"] {
+	width: 16px;
+	height: 16px;
+	margin: 0;
+	accent-color: #002240;
   }
-  
-  .form-check-label {
-	text-align: left;
-	padding-right: 10px;
-  }
-  
-  .form-check input[type="checkbox"] {
-	justify-self: end;
-	width: 30px; /* Increase the width */
-	height: 30px; /* Increase the height */
-	
+
+  .checkbox-item label {
+	margin: 0;
+	font-size: 14px;
+	color: #333;
+	line-height: 1;
   }
   
   .quote-form .submit-button {
@@ -5572,3 +5645,67 @@ p{font-size: 1.1em;font-weight: 300;line-height: 1.7em;color:#999}a, a:hover, a:
 #sidebar_e ul li.active>a, #sidebar_e a[aria-expanded="true"]{color:white;background: #002240}a[data-toggle="collapse"]{position: relative}.dropdown-toggle::after{display: block;position: absolute;top:50%;right:20px;transform: translateY(-50%)}ul ul a{font-size:0.9em !important;padding-left: 30px !important;background: #fff}ul.CTAs{padding:20px}ul.CTAs a{text-align: center;font-size:0.9em !important;display: block;border-radius: 5px;margin-bottom:5px}a.download, a.download:hover{background:#318fb5;color:#fff}#content{width:100%;padding:20px;min-height: 100vh;transition: all 0.3s}
 .content-wrapper{padding:15px}@media(maz-width:768px){#sidebar{margin-left:-250px}
 #sidebar_e.active{margin-left:0px}#sidebarCollapse span{display:none}}
+
+/* Product Quote Information Styles */
+.product-quote-info {
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 30px;
+}
+
+.product-quote-info h3 {
+  color: #002240;
+  font-family: 'NexaBold';
+  margin-bottom: 15px;
+  font-size: 1.4em;
+}
+
+.product-details {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.product-image {
+  flex-shrink: 0;
+}
+
+.product-image img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid #e9ecef;
+}
+
+.product-text h4 {
+  color: #002240;
+  font-family: 'NexaBold';
+  margin-bottom: 8px;
+  font-size: 1.2em;
+}
+
+.product-text p {
+  margin: 5px 0;
+  color: #666;
+  font-size: 0.95em;
+}
+
+.product-text strong {
+  color: #002240;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .product-details {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .product-image img {
+    width: 100px;
+    height: 100px;
+  }
+}

@@ -17,49 +17,56 @@ const videoData = [
     vid: 'videos/na.mp4',
     productName: 'High-performance Laptops',
     price: '$192',
-    rating: '1 day ago'
+    rating: '1 day ago',
+    category: 'Electronics and Electricals'
   },
   {
     img: 'img/product/televisions.jpg',
     vid: 'videos/na.mp4',
     productName: 'Ultra HD Televisions',
     price: '$1,092',
-    rating: '5'
+    rating: '5',
+    category: 'Electronics and Electricals'
   },
   {
     img: 'img/product/electronics-5.jpg',
     vid: 'videos/3.mp4',
     productName: 'Sleek and Powerful Tablets',
     price: '$599',
-    rating: '4'
+    rating: '4',
+    category: 'Electronics and Electricals'
   },
   {
     img: 'img/product/Gaming.jpg',
     vid: 'videos/3.mp4',
     productName: 'Next-Gen Gaming Consoles',
     price: '$602' ,
-    rating: '4'
+    rating: '4',
+    category: 'Electronics and Electricals'
   },
   {
     img: 'img/product/machinery-2.jpg',
     vid: 'videos/na.mp4',
     productName: 'Heavy-Duty Trucks',
     price: '$1,902',
-    rating: '4'
+    rating: '4',
+    category: 'Agricultural Products and Machinery'
   },
   {
     img: 'img/product/furniture.jpg',
     vid: 'videos/na.mp4',
     productName: 'High Quality Furniture',
     price: '$602',
-    rating: '5'
+    rating: '5',
+    category: 'Furniture'
   },
   {
     img: 'img/product/clothing-3.jpg',
     vid: 'videos/na.mp4',
     productName: 'Elegant Jewelry Collections',
     price: '$602',
-    rating: '5'
+    rating: '5',
+    category: 'Clothing and Fashion Accessories'
   },
  
   // Add more video data here

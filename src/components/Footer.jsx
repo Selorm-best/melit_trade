@@ -8,7 +8,8 @@ const Footer = () => {
     <footer className="footer">
     <div className="container">
       <div className="row">
-        <div className="col-lg-3 col-md-6 col-sm-6">
+        {/* Company Info Column */}
+        <div className="col-lg-3 col-md-6 col-sm-12">
           <div className="footer__about">
             <div className="footer__logo">
               <Link to={"/"}><img src="img/fn_logo.png" alt /></Link>
@@ -17,47 +18,43 @@ const Footer = () => {
             <a href="#"><img src="img/mtnmomo.png" width="50%" height="50%" alt /></a>
           </div>
         </div>
-        <div className="col-lg-2 offset-lg-1 col-md-3 col-sm-6">
-          <div className="footer__widget">
-            <h6>Useful Links</h6>
-            <ul>
-              <li><a href="#">Home</a></li>
-              <li><a href="#">Products</a></li>
-              <li><a href="#">Tracking</a></li>
-              <li><a href="#">About Us</a></li>
-              <li><a href="#">Latest Insights</a></li>
-            </ul>
-          </div>
-        </div>
-        <div className="col-lg-2 col-md-3 col-sm-6">
+        
+        {/* Working Hours Column */}
+        <div className="col-lg-3 col-md-6 col-sm-12">
           <div className="footer__widget">
             <h6>Working Hours</h6>
             <ul>
               <li><a href="#">Weekdays: 9AM - 5PM</a></li>
-              <li><a href="#">Saturday: 12PM - 4PM </a></li>
+              <li><a href="#">Saturday: 12PM - 4PM</a></li>
+              <li><a href="#">Sunday: Closed</a></li>
             </ul>
           </div>
         </div>
-        <div className="col-lg-3 offset-lg-1 col-md-6 col-sm-6">
+
+        {/* Contact Info Column */}
+        <div className="col-lg-3 col-md-6 col-sm-12">
           <div className="footer__widget">
-            <h6>GET IN TOUCH</h6>
-     <div className="contact_info">
-      <div className="row justify-content-center">
-        <div className="col">
-           <p><i className="fas fa-envelope"></i>
-               <a href="mailto:">melit.trade@outlook.com</a>
-            </p>
-            <p>
+            <h6>Contact Information</h6>
+            <div className="contact_info">
+              <p><i className="fas fa-envelope"></i>
+                <a href="mailto:melit.trade@outlook.com">melit.trade@outlook.com</a>
+              </p>
+              <p>
                 <i className="fas fa-phone"></i>
-                
                 <a href="tel:+233 53 879 7707">+233 53 879 7707</a>
               </p>
               <p>
-            <i className="fas fa-map-marker-alt"></i> <a href="#">Ashaley Botwe, Near Lakeside Shell</a>
-        </p>
-      </div>
-    </div>
-    </div>
+                <i className="fas fa-map-marker-alt"></i> 
+                <a href="#">Ashaley Botwe, Near Lakeside Shell</a>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Newsletter Column */}
+        <div className="col-lg-3 col-md-6 col-sm-12">
+          <div className="footer__widget">
+            <h6>Stay Connected</h6>
             <div className="footer__newslatter">
               <p>Stay Informed, Join Our Mailing List Today!</p>
               <form action="#">
@@ -65,23 +62,22 @@ const Footer = () => {
                 <button type="submit"><i title="Subscribe" className="fas fa-envelope" /></button>
               </form>
             </div>
+            <div className="social-icons">
+              <a href='https://www.instagram.com/melittradeltd/' target="_blank" rel="noopener noreferrer">
+                <FontAwesomeIcon icon={faInstagram} className="icon instagram" />
+              </a>
+              <a href="https://www.facebook.com/profile.php?id=61565431388127" target="_blank" rel="noopener noreferrer">
+                <FontAwesomeIcon icon={faFacebook} className="icon facebook" />
+              </a>
+            </div>
           </div>
         </div>
       </div>
       <div className="row top_line">
-        <div className="col-lg-12 d-flex justify-content-between align-items-center ">
+        <div className="col-lg-12 d-flex justify-content-center align-items-center">
           <div className="footer__copyright__text">
-            <p>Copyright © { new Date().getFullYear()} All rights reserved 
-            </p>
+            <p>Copyright © { new Date().getFullYear()} Melit Trade Ltd. All rights reserved</p>
           </div>
-         
-       
-        <div className="social-icons">
-          <a href='https://instagram.com/YOUR_COMPANY_INSTAGRAM' target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faInstagram} className="icon instagram" /></a>
-          <a href="https://facebook.com/YOUR_COMPANY_FACEBOOK" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faFacebook} className="icon facebook" /> </a>
-          <a href="#"><FontAwesomeIcon icon={faTwitter} className="icon twitter" /></a>
-        </div>
-    
         </div>
       </div>
     </div>

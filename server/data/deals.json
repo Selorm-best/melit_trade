@@ -1,0 +1,14 @@
+[
+  {
+    "id": "deal_001",
+    "title": "Premium Electronics Bundle",
+    "description": "High-quality electronics sourced directly from Mainland China. Includes smartphones, tablets, and accessories with competitive pricing and fast delivery.",
+    "price": "$299.99",
+    "category": "Electronics",
+    "targetDate": "2024-12-31",
+    "imgSrc": "img/product/electronics.jpg",
+    "active": true,
+    "createdAt": "2024-01-15T10:00:00.000Z"
+  }
+]
+

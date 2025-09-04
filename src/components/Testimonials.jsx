@@ -18,13 +18,13 @@ const Testimonials = () => {
     const testimonials = [
         {
             text: "“Our company's procurement process has significantly improved since partnering with Melit Trade. Their competitive pricing and extensive supplier network have saved us both time and money. The quality of products we receive is consistently high, and their tech-driven solutions make the entire process seamless. Highly recommended!”",
-            author: "Kwame Yeboah",
+            author: "Mr Tieku Asare",
             profession: "Operations Manager",
             imgSrc: "img/about/testimonial-author.jpg",
         },
         {
             text: "“We have been using Melit Trade for our procurement needs for over a year, and the experience has been exceptional. Their commitment to quality and transparency in all dealings sets them apart from other providers. The personalized shopping experience they offer ensures that our unique needs are always met”",
-            author: "Kofi Yesu",
+            author: "Mrs Clementia Bartels",
             profession: "Purchasing Director",
             imgSrc: "img/about/testimonial-author.jpg",
         },

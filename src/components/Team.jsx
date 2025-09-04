@@ -1,41 +1,75 @@
 import React from 'react';
 
-
 const Team = () => {
   const teamMembers = [
-    { name: 'Melvin Y. Adongo', role: 'Chief Operating Officer(COO)', imgSrc: 'img/about/melvin.jpeg', location:'Ghana' },
-    { name: 'Otis K. Ledlum', role: 'Director of International Operations', imgSrc: 'img/about/otis.jpeg', location:'China' },
-    { name: 'Vanessa E. Van-Dyke', role: 'Director of Communications', imgSrc: 'img/about/vanessa.jpeg', location:'Ghana' },
-    { name: 'Jacob T. Tetteh', role: 'International Operations Manager', imgSrc: 'img/about/jacob.jpeg', location:'China'},
-    { name: 'Percy N. Hansen', role: 'Logistics Manager', imgSrc: 'img/about/Nii.jpg', location:'Ghana' },
-    { name: 'James K. Sekyi', role: 'Operations Manager', imgSrc: 'img/about/james.jpeg', location:'Ghana' },
-    { name: 'Ebenezer Tseh', role: 'Software Engineer', imgSrc: 'img/about/Eben.png', location:'U.S.A'},
+    { name: 'Mr James Adongo Asampua', role: 'Managing Director', imgSrc: 'img/about/james-adongo.jpeg', location: 'Ghana', fallbackImg: 'img/about/james.jpeg' },
+    { name: 'Melvin Y. Adongo', role: 'Director of Operations', imgSrc: 'img/about/melvin.jpeg', location: 'Ghana' },
+    { name: 'Otis K. Ledlum', role: 'Director of International Operations', imgSrc: 'img/about/otis.jpeg', location: 'China' },
+    { name: 'Jacob T. Tetteh', role: 'International Operations Manager', imgSrc: 'img/about/jacob.jpeg', location: 'China' },
+    { name: 'Percy N. Hansen', role: 'Logistics Manager', imgSrc: 'img/about/Nii.jpg', location: 'Ghana' },
+    { name: 'Ebenezer Tseh', role: 'Software Engineer', imgSrc: 'img/about/Eben.png', location: 'U.S.A' },
+  ];
 
+  const partners = [
+    { name: 'Mr Vitus Atanga Green', role: 'Strategic Partner', imgSrc: 'img/about/partner1.jpg', location: 'USA' },
+    { name: 'Mr Kelly Sugri Ayimbila', role: 'Strategic Partner', imgSrc: 'img/about/partner2.jpg', location: 'USA' },
   ];
 
   return (
     <div className="container">
-    <div className="row">
-      <div className="col-lg-12">
-        <div className="section-title">
-          <span>Our Team</span>
-          <h2>Meet Our Executive Members</h2>
+      {/* Team Section */}
+      <div className="row">
+        <div className="col-lg-12">
+          <div className="section-title">
+            <span>Our Team</span>
+            <h2>Meet Our Executive Members</h2>
+          </div>
         </div>
       </div>
-    </div>
-    <div className="team__grid">
-      {teamMembers.map((member, index) => (
-        <div key={index} className="team__item">
-          <div className="team__img-wrapper">
-            <img src={member.imgSrc} alt={member.name} />
+      <div className="team__grid">
+        {teamMembers.map((member, index) => (
+          <div key={index} className="team__item">
+            <div className="team__img-wrapper">
+              <img 
+                src={member.imgSrc} 
+                alt={member.name} 
+                onError={(e) => {
+                  if (member.fallbackImg) {
+                    e.currentTarget.src = member.fallbackImg;
+                    e.currentTarget.onerror = null;
+                  }
+                }}
+              />
+            </div>
+            <h4>{member.name}</h4>
+            <span>{member.role}</span>
+            <p className='locat'>{member.location}</p>
           </div>
-          <h4>{member.name}</h4>
-          <span>{member.role}</span>
-          <p className='locat'>{member.location}</p>
+        ))}
+      </div>
+
+      {/* Partners Section */}
+      <div className="row mt-5">
+        <div className="col-lg-12">
+          <div className="section-title">
+            <span>Our Partners</span>
+            <h2>Strategic Partners</h2>
+          </div>
         </div>
-      ))}
+      </div>
+      <div className="team__grid">
+        {partners.map((partner, index) => (
+          <div key={index} className="team__item">
+            <div className="team__img-wrapper">
+              <img src={partner.imgSrc} alt={partner.name} />
+            </div>
+            <h4>{partner.name}</h4>
+            <span>{partner.role}</span>
+            <p className='locat'>{partner.location}</p>
+          </div>
+        ))}
+      </div>
     </div>
-  </div>
   );
 };
 

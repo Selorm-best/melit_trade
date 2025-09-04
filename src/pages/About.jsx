@@ -49,7 +49,7 @@ const About = () => {
           <div className="about__item">
           <h4>Company Overview</h4>
             <p>At Melit Trade Ltd, we specialize in consumer procurement, logistics, and wholesale services. 
-              We're dedicated to fulfilling specific customer orders efficiently, streamlining the process of sourcing goods from Mainland China.
+              We're dedicated to fulfilling specific customer orders efficiently, streamlining the process of sourcing goods from Mainland China and USA.
               Leveraging our extensive supplier network, we negotiate competitive prices while upholding high standards of quality. 
               Our commitment to innovation is evident through our tech-driven solutions, such as an intuitive online platform and block chain integration for enhanced transparency in transactions. Our goal is to offer 
               a seamless and personalized shopping experience at affordable rates, making Melit Trade the top choice for customers.</p>
@@ -93,7 +93,7 @@ const About = () => {
       <div className="row">
         <div className="col-lg-12">
           <div className="section-title">
-            <span>Partner</span>
+            
             <h2>Happy Clients</h2>
           </div>
         </div>

@@ -8,14 +8,13 @@ import { Link } from 'react-router-dom';
 const videoData = [
   {
     img: 'img/product/laptops.jpg',
-    vid: 'videos/na.mp4',
+    vid: 'videos/electronics.mp4',
     productName: 'High-performance Laptops',
     price: '$192',
     rating: '1 day ago',
     category: 'Electronics and Electricals'
   },
   {
-    
     img: 'img/product/Electricals.jpg',
     vid: 'videos/electricals.mp4',
     productName: 'High-Quality Electrical Wires',
@@ -29,11 +28,11 @@ const videoData = [
     productName: 'High-Performance Blenders',
     price: '$192',
     rating: '1 day ago',
-    category: 'Household Appliances'
+    category: 'Household'
   },
   {
     img: 'img/product/televisions.jpg',
-    vid: 'videos/na.mp4',
+    vid: 'videos/electronics.mp4',
     productName: 'Ultra HD Televisions',
     price: '$1,092',
     rating: '5',
@@ -41,7 +40,7 @@ const videoData = [
   },
   {
     img: 'img/product/electronics-5.jpg',
-    vid: 'videos/3.mp4',
+    vid: 'videos/electronics.mp4',
     productName: 'Sleek and Powerful Tablets',
     price: '$599',
     rating: '4',
@@ -49,7 +48,7 @@ const videoData = [
   },
   {
     img: 'img/product/Gaming.jpg',
-    vid: 'videos/3.mp4',
+    vid: 'videos/electronics.mp4',
     productName: 'Next-Gen Gaming Consoles',
     price: '$602' ,
     rating: '4',
@@ -57,7 +56,7 @@ const videoData = [
   },
   {
     img: 'img/product/machinery-2.jpg',
-    vid: 'videos/na.mp4',
+    vid: 'videos/agric.mp4',
     productName: 'Heavy-Duty Trucks',
     price: '$1,902',
     rating: '4',
@@ -65,7 +64,7 @@ const videoData = [
   },
   {
     img: 'img/product/furniture.jpg',
-    vid: 'videos/na.mp4',
+    vid: 'videos/furniture.mp4',
     productName: 'High Quality Home Furniture',
     price: '$602',
     rating: '5',
@@ -73,11 +72,11 @@ const videoData = [
   },
   {
     img: 'img/product/clothing-3.jpg',
-    vid: 'videos/na.mp4',
+    vid: 'videos/clothing.mp4',
     productName: 'Elegant Jewelry Collections',
     price: '$602',
     rating: '5',
-    category: 'Clothing and fashion accessories'
+    category: 'Clothing and Fashion Accessories'
   },
   {
     img: 'img/product/machinery.jpg',
@@ -89,7 +88,7 @@ const videoData = [
   },
   {
     img: 'img/product/lighting.jpg',
-    vid: 'videos/na.mp4',
+    vid: 'videos/electricals.mp4',
     productName: 'Energy-Efficient Lighting',
     price: '$602',
     rating: '5',
@@ -98,7 +97,7 @@ const videoData = [
   },
   {
     img: 'img/product/office_furniture.jpg',
-    vid: 'videos/na.mp4',
+    vid: 'videos/furniture.mp4',
     productName: 'Ergonomic Office Furniture',
     price: '$602',
     rating: '5',
@@ -106,7 +105,7 @@ const videoData = [
   },
   {
     img: 'img/product/ups.jpg',
-    vid: 'videos/na.mp4',
+    vid: 'videos/electricals.mp4',
     productName: 'Reliable Uninterruptible Power Supplies',
     price: '$602',
     rating: '5',
@@ -115,7 +114,7 @@ const videoData = [
   },
   {
     img: 'img/product/solar-products.jpg',
-    vid: 'videos/na.mp4',
+    vid: 'videos/solar.mp4',
     productName: 'High Quality Solar Products',
     price: '$602',
     rating: '5',
@@ -123,11 +122,11 @@ const videoData = [
   },
   {
     img: 'img/product/Stationary.jpg',
-    vid: 'videos/na.mp4',
+    vid: 'videos/education.mp4',
     productName: 'Bestselling Books',
     price: '$602',
     rating: '5',
-    category: 'Educational materials'
+    category: 'Educational Materials'
   },
   {
     img: 'img/product/dresss.jpg',
@@ -135,27 +134,27 @@ const videoData = [
     productName: 'Trendy Clothing',
     price: '$602',
     rating: '5',
-    category: 'Clothing and fashion accessories'
+    category: 'Clothing and Fashion Accessories'
   },
   {
     img: 'img/product/shoes.jpg',
-    vid: 'videos/na.mp4',
+    vid: 'videos/clothing.mp4',
     productName: 'High Quality Shoes',
     price: '$602',
     rating: '5',
-    category: 'Clothing and fashion accessories'
+    category: 'Clothing and Fashion Accessories'
   },
   {
     img: 'img/product/motor.jpg',
-    vid: 'videos/na.mp4',
+    vid: 'videos/automobile.mp4',
     productName: 'Motorbikes and Automobiles',
     price: '$602',
     rating: '5',
-    category: 'Automobiles and auto parts'
+    category: 'Automobiles and Auto Parts'
   },
   {
     img: 'img/product/fitness.jpg',
-    vid: 'videos/na.mp4',
+    vid: 'videos/fitness.mp4',
     productName: 'State-of-the-Art Fitness Machines',
     price: '$602',
     rating: '5',
@@ -163,7 +162,7 @@ const videoData = [
   },
   {
     img: 'img/product/home_decor.jpg',
-    vid: 'videos/na.mp4',
+    vid: 'videos/home_decor.mp4',
     productName: 'Stylish Room Decor',
     price: '$602',
     rating: '5',
@@ -171,7 +170,7 @@ const videoData = [
   },
   {
     img: 'img/product/toys.jpg',
-    vid: 'videos/na.mp4',
+    vid: 'videos/toys.mp4',
     productName: 'Fun and Educational Toys',
     price: '$602',
     rating: '5',
@@ -183,15 +182,15 @@ const videoData = [
     productName: 'Durable Automobile Parts',
     price: '$602',
     rating: '5',
-    category: 'Automobiles and auto parts'
+    category: 'Automobiles and Auto Parts'
   },
   {
     img: 'img/product/microwaves.jpg',
-    vid: 'videos/na.mp4',
+    vid: 'videos/household.mp4',
     productName: 'Cooking Appliances',
     price: '$602',
     rating: '5',
-    category: 'Household Appliances'
+    category: 'Household'
   }
   // Add more video data here
 ];
@@ -199,16 +198,16 @@ const videoData = [
 const categories = [
   "All",
   "Electronics and Electricals",
-  "Household Appliances",
+  "Household",
   "Agricultural Products and Machinery",
   "Renewable Energy Products",
   "Furniture",
   "Home Decor and Furnishings",
-  "Baby products and toys",
-  "Educational materials",
-  "Automobiles and auto parts",
-  "Clothing and fashion accessories",
-  "Fitness and sports equipment"
+  "Baby Products and Toys",
+  "Educational Materials",
+  "Automobiles and Auto Parts",
+  "Clothing and Fashion Accessories",
+  "Fitness and Sports Equipment"
 ];
 
 const Products = () => {
@@ -268,12 +267,7 @@ const Products = () => {
             <div className="row">
               <div className="col-lg-3">
                 <div className="shop__sidebar">
-                  <div className="shop__sidebar__search">
-                    <form action="#">
-                      <input type="text" placeholder="Search..." />
-                      <button type="submit"><span className="icon_search" /></button>
-                    </form>
-                  </div>
+                  {/* Search removed as requested */}
                   <div className="product_categories">
                     <h4>Product Categories</h4>
                     <ul>
@@ -296,16 +290,11 @@ const Products = () => {
                 <div className="shop__product__option">
                   <div className="row">
                     <div className="col-lg-6 col-md-6 col-sm-6">
-                      <div className="shop__product__option__left">
-                        <p>Showing {filteredVideoData.length} {filteredVideoData.length > 1 ? "results": "result"}</p>
-                      </div>
+                      
                     </div>
                     <div className="col-lg-6 col-md-6 col-sm-6">
                       <div className="shop__product__option__right">
-                        <div className="nice_sel">
-                          <p>Sort By: </p>
-                          <NiceSelect options={options} onChange={handleSelectChange} />
-                        </div>
+                       
                       </div>
                     </div>
                   </div>
