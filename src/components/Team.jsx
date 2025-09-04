@@ -2,7 +2,7 @@ import React from 'react';
 
 const Team = () => {
   const teamMembers = [
-    { name: 'Mr James Adongo Asampua', role: 'Managing Director', imgSrc: 'img/about/james-adongo.jpeg', location: 'Ghana', fallbackImg: 'img/about/james.jpeg' },
+    { name: 'Mr James Adongo Asampua', role: 'Managing Director', imgSrc: 'img/about/james-adongo.jpeg', location: 'Ghana', fallbackImg: 'img/about/james.jpeg', imgStyle: { objectPosition: 'center top' } },
     { name: 'Melvin Y. Adongo', role: 'Director of Operations', imgSrc: 'img/about/melvin.jpeg', location: 'Ghana' },
     { name: 'Otis K. Ledlum', role: 'Director of International Operations', imgSrc: 'img/about/otis.jpeg', location: 'China' },
     { name: 'Jacob T. Tetteh', role: 'International Operations Manager', imgSrc: 'img/about/jacob.jpeg', location: 'China' },
@@ -33,6 +33,7 @@ const Team = () => {
               <img 
                 src={member.imgSrc} 
                 alt={member.name} 
+                style={member.imgStyle}
                 onError={(e) => {
                   if (member.fallbackImg) {
                     e.currentTarget.src = member.fallbackImg;
