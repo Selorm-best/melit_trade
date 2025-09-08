@@ -3222,6 +3222,18 @@ product__item_m {
 	}
 }
 
+/* Hero buttons equal sizing */
+.btn-hero {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	min-width: 220px;
+	height: 48px;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+}
+
 /*---------------------
   Breadcrumb
 -----------------------*/

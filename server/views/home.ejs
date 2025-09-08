@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Content - Melit Trade Admin</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/admin/dashboard"><i class="fas fa-cogs me-2"></i>Melit Trade CMS</a>
+      <a class="btn btn-outline-light" href="/admin/dashboard">Back to Dashboard</a>
+    </div>
+  </nav>
+
+  <div class="container py-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h2 class="mb-0"><i class="fas fa-home me-2"></i>Home Content</h2>
+      <button class="btn btn-primary" onclick="saveHome()"><i class="fas fa-save me-2"></i>Save Changes</button>
+    </div>
+
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h5 class="mb-3">Hero Section</h5>
+        <form id="homeForm">
+          <div class="mb-3">
+            <label class="form-label">Headline</label>
+            <input class="form-control" name="headline" required />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Subtext</label>
+            <textarea class="form-control" name="subtext" rows="3"></textarea>
+          </div>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label class="form-label">Primary CTA Label</label>
+              <input class="form-control" name="ctaPrimaryLabel" />
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Primary CTA Path</label>
+              <input class="form-control" name="ctaPrimaryPath" />
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Secondary CTA Label</label>
+              <input class="form-control" name="ctaSecondaryLabel" />
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Secondary CTA Path</label>
+              <input class="form-control" name="ctaSecondaryPath" />
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    async function loadHome() {
+      const res = await fetch('/admin/home');
+      const data = await res.json();
+      const home = data.home || { hero:{} };
+      const form = document.getElementById('homeForm');
+      form.headline.value = home.hero?.headline || '';
+      form.subtext.value = home.hero?.subtext || '';
+      form.ctaPrimaryLabel.value = home.hero?.ctaPrimary?.label || '';
+      form.ctaPrimaryPath.value = home.hero?.ctaPrimary?.path || '';
+      form.ctaSecondaryLabel.value = home.hero?.ctaSecondary?.label || '';
+      form.ctaSecondaryPath.value = home.hero?.ctaSecondary?.path || '';
+    }
+
+    async function saveHome() {
+      const form = document.getElementById('homeForm');
+      const payload = {
+        hero: {
+          headline: form.headline.value,
+          subtext: form.subtext.value,
+          ctaPrimary: { label: form.ctaPrimaryLabel.value, path: form.ctaPrimaryPath.value },
+          ctaSecondary: { label: form.ctaSecondaryLabel.value, path: form.ctaSecondaryPath.value }
+        }
+      };
+      const res = await fetch('/admin/home', { method:'PUT', headers:{ 'Content-Type':'application/json' }, body: JSON.stringify(payload) });
+      if (res.ok) alert('Home content saved');
+    }
+
+    document.addEventListener('DOMContentLoaded', loadHome);
+  </script>
+</body>
+</html>

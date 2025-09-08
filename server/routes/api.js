@@ -80,6 +80,32 @@ router.get('/deals', async (req, res) => {
 });
 
 /**
+ * GET /api/products - Get all products
+ */
+router.get('/products', async (req, res) => {
+  try {
+    const products = await readData('products.json');
+    res.json(products);
+  } catch (error) {
+    console.error('API Error - Products:', error);
+    res.status(500).json({ error: 'Failed to fetch products data' });
+  }
+});
+
+/**
+ * GET /api/home - Get home page editable content
+ */
+router.get('/home', async (req, res) => {
+  try {
+    const home = await readData('home.json');
+    res.json(home);
+  } catch (error) {
+    console.error('API Error - Home:', error);
+    res.status(500).json({ error: 'Failed to fetch home content' });
+  }
+});
+
+/**
  * GET /api/health - Health check endpoint
  * Simple endpoint to verify API is running
  */

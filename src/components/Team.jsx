@@ -1,19 +1,40 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 const Team = () => {
-  const teamMembers = [
+  const [teamMembers, setTeamMembers] = useState([
     { name: 'Mr James Adongo Asampua', role: 'Managing Director', imgSrc: 'img/about/james-adongo.jpeg', location: 'Ghana', fallbackImg: 'img/about/james.jpeg', imgStyle: { objectPosition: 'center top' } },
     { name: 'Melvin Y. Adongo', role: 'Director of Operations', imgSrc: 'img/about/melvin.jpeg', location: 'Ghana' },
     { name: 'Otis K. Ledlum', role: 'Director of International Operations', imgSrc: 'img/about/otis.jpeg', location: 'China' },
     { name: 'Jacob T. Tetteh', role: 'International Operations Manager', imgSrc: 'img/about/jacob.jpeg', location: 'China' },
     { name: 'Percy N. Hansen', role: 'Logistics Manager', imgSrc: 'img/about/Nii.jpg', location: 'Ghana' },
     { name: 'Ebenezer Tseh', role: 'Software Engineer', imgSrc: 'img/about/Eben.png', location: 'U.S.A' },
-  ];
-
-  const partners = [
+  ]);
+  const [partners, setPartners] = useState([
     { name: 'Mr Vitus Atanga Green', role: 'Strategic Partner', imgSrc: 'img/about/partner1.jpg', location: 'USA' },
     { name: 'Mr Kelly Sugri Ayimbila', role: 'Strategic Partner', imgSrc: 'img/about/partner2.jpg', location: 'USA' },
-  ];
+  ]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const [teamRes, partnersRes] = await Promise.all([
+          fetch('/api/team'),
+          fetch('/api/partners')
+        ]);
+        if (teamRes.ok) {
+          const teamJson = await teamRes.json();
+          if (Array.isArray(teamJson) && teamJson.length) setTeamMembers(teamJson);
+        }
+        if (partnersRes.ok) {
+          const partnersJson = await partnersRes.json();
+          if (Array.isArray(partnersJson) && partnersJson.length) setPartners(partnersJson);
+        }
+      } catch (_) {
+        // Fail silently and keep defaults
+      }
+    };
+    fetchData();
+  }, []);
 
   return (
     <div className="container">

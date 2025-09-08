@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPaperPlane, faTruckFast } from '@fortawesome/free-solid-svg-icons';
 
 const HeroItem = ({image, tagline1, tagline2, text}) => {
   useEffect(() => {
@@ -22,7 +24,16 @@ const HeroItem = ({image, tagline1, tagline2, text}) => {
             <h6>{tagline1}</h6>
        
             <p>{text}</p>
-            <Link to={"/quotes"} className="primary-btn">Get a Quote <span className="arrow_right" /></Link>
+            <div className="d-flex flex-wrap">
+              <Link to={"/quotes"} className="primary-btn btn-hero">
+                <FontAwesomeIcon icon={faPaperPlane} />
+                <span>Get a Quote</span>
+              </Link>
+              <Link to={"/tracking"} className="primary-btn btn-hero" style={{ marginLeft: '12px', marginTop: '10px' }}>
+                <FontAwesomeIcon icon={faTruckFast} />
+                <span>Track Package</span>
+              </Link>
+            </div>
            
           </div>
         </div>

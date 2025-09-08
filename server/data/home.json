@@ -1,0 +1,14 @@
+{
+  "hero": {
+    "headline": "Your Trusted Global Procure",
+    "subtext": "We bridge the gap between you and the world, providing seamless procurement solutions tailored to your needs.",
+    "ctaPrimary": {
+      "label": "Get a Quote",
+      "path": "/quotes"
+    },
+    "ctaSecondary": {
+      "label": "Track Package",
+      "path": "/tracking"
+    }
+  }
+}

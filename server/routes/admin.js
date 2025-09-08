@@ -350,6 +350,117 @@ router.get('/deals', async (req, res) => {
   }
 });
 
+// Render products UI
+router.get('/products-ui', async (req, res) => {
+  try {
+    res.render('products', { title: 'Manage Products', user: req.user });
+  } catch (error) {
+    res.status(500).render('error', { error: 'Failed to load products UI' });
+  }
+});
+
+// Render home content UI
+router.get('/home-ui', async (req, res) => {
+  try {
+    res.render('home', { title: 'Home Content', user: req.user });
+  } catch (error) {
+    res.status(500).render('error', { error: 'Failed to load home UI' });
+  }
+});
+
+// Products Management
+router.get('/products', async (req, res) => {
+  try {
+    const products = await readData('products.json');
+    res.json({ success: true, products });
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to load products data' });
+  }
+});
+
+router.post('/products', upload.single('image'), async (req, res) => {
+  try {
+    const { productName, category, price, vid } = req.body;
+    const imagePath = req.file ? `/uploads/${req.file.filename}` : null;
+    const products = await readData('products.json');
+    const newProduct = {
+      id: generateId(),
+      productName,
+      category,
+      price,
+      vid: vid || 'videos/na.mp4',
+      img: imagePath || 'img/product/default.jpg'
+    };
+    products.push(newProduct);
+    await writeData('products.json', products);
+    res.json({ success: true, product: newProduct });
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to add product' });
+  }
+});
+
+router.put('/products/:id', upload.single('image'), async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { productName, category, price, vid } = req.body;
+    const imagePath = req.file ? `/uploads/${req.file.filename}` : null;
+    let products = await readData('products.json');
+    const product = findById(products, id);
+    if (!product) return res.status(404).json({ error: 'Product not found' });
+    if (imagePath && product.img && product.img.startsWith('/uploads/')) {
+      try { await fs.unlink(path.join(__dirname, '../public', product.img)); } catch (_) {}
+    }
+    products = updateById(products, id, {
+      productName,
+      category,
+      price,
+      vid,
+      ...(imagePath && { img: imagePath })
+    });
+    await writeData('products.json', products);
+    res.json({ success: true, product: findById(products, id) });
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to update product' });
+  }
+});
+
+router.delete('/products/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    let products = await readData('products.json');
+    const product = findById(products, id);
+    if (!product) return res.status(404).json({ error: 'Product not found' });
+    if (product.img && product.img.startsWith('/uploads/')) {
+      try { await fs.unlink(path.join(__dirname, '../public', product.img)); } catch (_) {}
+    }
+    products = deleteById(products, id);
+    await writeData('products.json', products);
+    res.json({ success: true });
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to delete product' });
+  }
+});
+
+// Home content management
+router.get('/home', async (req, res) => {
+  try {
+    const home = await readData('home.json');
+    res.json({ success: true, home });
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to load home content' });
+  }
+});
+
+router.put('/home', async (req, res) => {
+  try {
+    const home = req.body;
+    await writeData('home.json', home);
+    res.json({ success: true, home });
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to update home content' });
+  }
+});
+
 router.post('/deals', upload.single('image'), async (req, res) => {
   try {
     const { title, description, price, category, targetDate } = req.body;

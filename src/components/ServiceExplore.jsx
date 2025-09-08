@@ -1,21 +1,9 @@
 import React from 'react';
-import OwlCarousel from 'react-owl-carousel';
-import 'owl.carousel/dist/assets/owl.carousel.css';
-import 'owl.carousel/dist/assets/owl.theme.default.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBoxOpen, faTruckFast, faHandshake, faWarehouse, faTruck, faCartShopping, faLock, faBell, faUserTie, faChartLine, faTools} from '@fortawesome/free-solid-svg-icons';
 
 const ServiceExplore = () => {
-  const options = {
-    items: 1,
-    loop: true,
-    margin: 10,
-    nav: true,
-    dots: false,
-    autoplay: true,
-    autoplayTimeout: 5000, // 5 seconds
-    autoplayHoverPause: true
-  };
+  const options = {};
 
   return (
     // <div>

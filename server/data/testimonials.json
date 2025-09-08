@@ -1,7 +1,7 @@
 [
   {
     "id": "testimonial_001",
-    "text": "Melit Trade has transformed our procurement process. Their expertise in sourcing from Mainland China and USA has saved us significant time and costs. Highly recommended!",
+    "text": "Melit Trade has transformed our procurement process. Their expertise in sourcing from Mainland China and USA has saved us significant time and costs. !",
     "author": "Mr Tieku Asare",
     "profession": "Procurement Manager",
     "imgSrc": "img/about/testimonial-author.jpg"
@@ -14,5 +14,3 @@
     "imgSrc": "img/about/testimonial-author.jpg"
   }
 ]
-
-

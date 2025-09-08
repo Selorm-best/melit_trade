@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 import Hero from '../components/Hero'
+import { Link } from 'react-router-dom'
 import BannerItem from '../components/BannerItem';
 import Navigation from '../components/Navigation'
 import ServiceExplore from '../components/ServiceExplore';
@@ -86,6 +87,18 @@ const HomePage = () => {
   {/* Hero Section Begin */}
   <Hero/>
   {/* Hero Section End */}
+  {/* Home Action Button */}
+  <section className="home-action">
+    <div className="container">
+      <div className="row justify-content-center">
+        <div className="col-md-8 text-center">
+          <Link to="/tracking" className="submit-button" style={{ display:'inline-block', padding:'12px 28px', letterSpacing:'2px' }}>
+            TRACK PACKAGE
+          </Link>
+        </div>
+      </div>
+    </div>
+  </section>
   {/* Service Exploration Begin */}
   <section className='explore_services'>
   {/* <span className="service_text"> Explore Our Services</span>
