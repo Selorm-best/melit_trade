@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFaceGrinBeam, faFaceSmileHala } from '@fortawesome/free-solid-svg-icons';
-import { FaSmile,FaUsers, FaWeightHanging, FaCheckCircle } from 'react-icons/fa';
-
-import { FaPlus } from 'react-icons/fa';
+import { faFaceGrinBeam, faUsers, faWeightHanging, faCheckCircle, faPlus } from '@fortawesome/free-solid-svg-icons';
 const CounterSection = () => {
     const [clients, setClients] = useState(0);
     const [categories, setCategories] = useState(0);
@@ -51,7 +48,7 @@ const CounterSection = () => {
                             <FontAwesomeIcon icon={faFaceGrinBeam} />
                             </div>
                             <div className="counter__item__number">
-                                <h2 className="cn_num">{clients}<FaPlus className="plus-icon" /></h2>
+                                <h2 className="cn_num">{clients}<FontAwesomeIcon icon={faPlus} className="plus-icon" /></h2>
                             </div>
                             <span>Happy <br />Customers</span>
                         </div>
@@ -59,10 +56,10 @@ const CounterSection = () => {
                     <div className="col-lg-3 col-md-6 col-sm-6">
                         <div className="counter__item">
                             <div className="counter__item__icon">
-                                <FaUsers />
+                                <FontAwesomeIcon icon={faUsers} />
                             </div>
                             <div className="counter__item__number">
-                                <h2 className="cn_num">{categories}<FaPlus className="plus-icon" /></h2>
+                                <h2 className="cn_num">{categories}<FontAwesomeIcon icon={faPlus} className="plus-icon" /></h2>
                             </div>
                             <span>Acquired <br />Users</span>
                         </div>
@@ -70,10 +67,10 @@ const CounterSection = () => {
                     <div className="col-lg-3 col-md-6 col-sm-6">
                         <div className="counter__item">
                             <div className="counter__item__icon">
-                                <FaWeightHanging />
+                                <FontAwesomeIcon icon={faWeightHanging} />
                             </div>
                             <div className="counter__item__number">
-                                <h2 className="cn_num">{inCountry}<text style={{color:'#3498db', fontWeight:'bold'}}>MT</text><FaPlus className="plus-icon" /></h2>
+                                <h2 className="cn_num">{inCountry}<text style={{color:'#3498db', fontWeight:'bold'}}>MT</text><FontAwesomeIcon icon={faPlus} className="plus-icon" /></h2>
                             </div>
                             <span>Weights of <br />Goods Moved</span>
                         </div>
@@ -81,10 +78,10 @@ const CounterSection = () => {
                     <div className="col-lg-3 col-md-6 col-sm-6">
                         <div className="counter__item">
                             <div className="counter__item__icon">
-                                <FaCheckCircle />
+                                <FontAwesomeIcon icon={faCheckCircle} />
                             </div>
                             <div className="counter__item__number">
-                                <h2 className="cn_num">{happyCustomers}<FaPlus className="plus-icon" /></h2>
+                                <h2 className="cn_num">{happyCustomers}<FontAwesomeIcon icon={faPlus} className="plus-icon" /></h2>
                             </div>
                             <span>Completed <br />Orders</span>
                         </div>

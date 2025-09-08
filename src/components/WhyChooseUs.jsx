@@ -1,5 +1,6 @@
 import React from 'react';
-import { FaDollarSign, FaCertificate, FaLaptopCode, FaShoppingCart, FaUsers, FaEye, FaCheckCircle } from 'react-icons/fa';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faDollarSign, faCertificate, faLaptopCode, faUsers, faEye, faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 
 
 const WhyChooseUs = () => {
@@ -13,32 +14,32 @@ const WhyChooseUs = () => {
                     </p>
                     <div className="why-choose-us">
                         <div className="why-choose-us-item">
-                            <FaDollarSign className="why-choose-us-icon" />
+                            <FontAwesomeIcon icon={faDollarSign} className="why-choose-us-icon" />
                             <h5>Competitive Pricing</h5>
                             <p>Through our extensive supplier network, we offer competitive pricing.</p>
                         </div>
                         <div className="why-choose-us-item">
-                            <FaCertificate className="why-choose-us-icon" />
+                            <FontAwesomeIcon icon={faCertificate} className="why-choose-us-icon" />
                             <h5>High Standards of Quality</h5>
                             <p>We adhere to high standards of quality in all our products and services.</p>
                         </div>
                         <div className="why-choose-us-item">
-                            <FaLaptopCode className="why-choose-us-icon" />
+                            <FontAwesomeIcon icon={faLaptopCode} className="why-choose-us-icon" />
                             <h5>Tech-Driven Solutions</h5>
                             <p>Our online platform leverages technology to provide innovative solutions.</p>
                         </div>
                         <div className="why-choose-us-item">
-                            <FaUsers className="why-choose-us-icon" />
+                            <FontAwesomeIcon icon={faUsers} className="why-choose-us-icon" />
                             <h5>Customer-Centric Approach</h5>
                             <p>We put our customers at the center of everything we do.</p>
                         </div>
                         <div className="why-choose-us-item">
-                            <FaEye className="why-choose-us-icon" />
+                            <FontAwesomeIcon icon={faEye} className="why-choose-us-icon" />
                             <h5>Transparency</h5>
                             <p>We believe in maintaining transparency in all our dealings.</p>
                         </div>
                         <div className="why-choose-us-item">
-                            <FaCheckCircle className="why-choose-us-icon" />
+                            <FontAwesomeIcon icon={faCheckCircle} className="why-choose-us-icon" />
                             <h5>Quality Commitment</h5>
                             <p>We are committed to providing quality products and services.</p>
                         </div>

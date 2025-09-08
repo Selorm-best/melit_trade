@@ -1,4 +1,5 @@
-import { FaLightbulb, FaShieldAlt, FaBolt } from 'react-icons/fa';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLightbulb, faShieldAlt, faBolt } from '@fortawesome/free-solid-svg-icons';
 
 
 const CoreValues = () => {
@@ -9,17 +10,17 @@ const CoreValues = () => {
                     <h4>Our Core Values</h4>
                     <div className="core-values">
                         <div className="core-value-item">
-                            <FaLightbulb className="core-value-icon" />
+                            <FontAwesomeIcon icon={faLightbulb} className="core-value-icon" />
                             <h5>Innovation</h5>
                             <p>We embrace change and creativity to deliver the best solutions.</p>
                         </div>
                         <div className="core-value-item">
-                            <FaShieldAlt className="core-value-icon" />
+                            <FontAwesomeIcon icon={faShieldAlt} className="core-value-icon" />
                             <h5>Integrity</h5>
                             <p>We adhere to the highest standards of ethics and transparency.</p>
                         </div>
                         <div className="core-value-item">
-                            <FaBolt className="core-value-icon" />
+                            <FontAwesomeIcon icon={faBolt} className="core-value-icon" />
                             <h5>Efficiency</h5>
                             <p>We strive to achieve maximum productivity with minimum wasted effort.</p>
                         </div>
