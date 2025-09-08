@@ -48,6 +48,8 @@ const VideoCard = ({ video }) => {
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         onClick={handleModalOpen}
+        onTouchStart={() => setIsHovered(true)}
+        onTouchEnd={() => setIsHovered(false)}
       >
         <div className="video-card-thumbnail">
           <div className="thumbnail-image">

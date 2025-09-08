@@ -24,7 +24,7 @@ const HeroItem = ({image, tagline1, tagline2, text}) => {
             <h6>{tagline1}</h6>
        
             <p>{text}</p>
-            <div className="d-flex align-items-center gap-3">
+            <div className="d-flex align-items-center gap-3 hero-buttons">
               <Link to={"/quotes"} className="primary-btn btn-hero">
                 <FontAwesomeIcon icon={faPaperPlane} />
                 <span>Get a Quote</span>

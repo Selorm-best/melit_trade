@@ -5711,11 +5711,384 @@ p{font-size: 1.1em;font-weight: 300;line-height: 1.7em;color:#999}a, a:hover, a:
   font-weight: 600;
 }
 
+/* Mobile Responsive Improvements */
+/* Base mobile styles */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+}
+
 @media (max-width: 768px) {
   .product-details {
     flex-direction: column;
     text-align: center;
   }
+  
+  /* Navigation Mobile Improvements */
+  .header__menu {
+    display: none;
+  }
+  
+  .header__logo img {
+    max-height: 40px;
+  }
+  
+  .header__top__left p {
+    font-size: 12px;
+  }
+  
+  .canvas__open {
+    display: block !important;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1001;
+  }
+  
+  /* Offcanvas Menu Mobile */
+  .offcanvas-menu-wrapper {
+    width: 280px;
+  }
+  
+  .offcanvas-menu-wrapper.active {
+    transform: translateX(0);
+  }
+  
+  .offcanvas__nav__option a {
+    padding: 10px;
+    display: inline-block;
+  }
+  
+  .wrapper nav ul li {
+    padding: 8px 0;
+  }
+  
+  .wrapper nav ul li a {
+    font-size: 16px;
+    padding: 10px 20px;
+    display: block;
+  }
+  
+  /* Hero Section Mobile */
+  .hero__text_f {
+    padding: 20px;
+  }
+  
+  .hero__text_f .tagline_f {
+    font-size: 24px !important;
+    line-height: 1.2;
+    margin-bottom: 15px;
+  }
+  
+  .hero__text_f p {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+  
+  /* Hero Buttons Mobile */
+  .hero-buttons {
+    flex-direction: column;
+    gap: 10px !important;
+  }
+  
+  .btn-hero {
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto;
+  }
+  
+  /* Video Cards Mobile */
+  .video-card-container {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 0 15px;
+  }
+  
+  .video-card {
+    margin-bottom: 20px;
+  }
+  
+  .product__item__text h6 {
+    font-size: 14px;
+    line-height: 1.3;
+  }
+  
+  .order-btn {
+    font-size: 12px;
+    padding: 8px 16px;
+  }
+  
+  /* Modal Mobile */
+  .video-modal-screen {
+    padding: 10px;
+  }
+  
+  .video-modal-content {
+    width: 95%;
+    height: auto;
+    max-height: 80vh;
+    border-radius: 10px;
+  }
+  
+  .modal-video {
+    width: 100%;
+    height: auto;
+    border-radius: 10px 10px 0 0;
+  }
+  
+  .modal-video-info {
+    padding: 15px;
+  }
+  
+  .modal_title {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  .vid-modal-close-btn,
+  .media_close_btn {
+    font-size: 20px;
+    padding: 5px;
+  }
+  
+  .add-to-cart.order-btn {
+    font-size: 12px;
+    padding: 8px 16px;
+  }
+  
+  /* Quote Form Mobile */
+  .quote-form-container {
+    padding: 20px 15px;
+  }
+  
+  .quote-form {
+    padding: 20px;
+  }
+  
+  .form-section {
+    margin-bottom: 20px;
+  }
+  
+  .form-section h3 {
+    font-size: 18px;
+  }
+  
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    font-size: 16px; /* Prevents zoom on iOS */
+    padding: 12px 15px;
+  }
+  
+  .checkbox-group {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .checkbox-item {
+    margin-bottom: 10px;
+  }
+  
+  /* Contact Form Mobile */
+  .contact-form {
+    padding: 20px 15px;
+  }
+  
+  .contact-info {
+    margin-bottom: 30px;
+  }
+  
+  .contact-info h4 {
+    font-size: 18px;
+  }
+  
+  /* Footer Mobile */
+  .footer__widget {
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  
+  .footer__widget h6 {
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
+  
+  /* Team Section Mobile */
+  .team__grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  .team__item {
+    margin-bottom: 20px;
+  }
+  
+  /* Why Choose Us Mobile */
+  .why-choose-us-item {
+    margin-bottom: 20px;
+    padding: 20px 15px;
+  }
+  
+  .why-choose-us-item h4 {
+    font-size: 18px;
+  }
+  
+  /* Core Values Mobile */
+  .core-value-item {
+    margin-bottom: 20px;
+    padding: 20px 15px;
+  }
+  
+  .core-value-item h4 {
+    font-size: 18px;
+  }
+  
+  /* Counter Section Mobile */
+  .counter-item {
+    margin-bottom: 20px;
+  }
+  
+  .counter-item h2 {
+    font-size: 32px;
+  }
+  
+  /* Breadcrumb Mobile */
+  .breadcrumb__text h4 {
+    font-size: 20px;
+  }
+  
+  .breadcrumb__links {
+    font-size: 14px;
+  }
+  
+  /* Shop Sidebar Mobile */
+  .shop__sidebar {
+    margin-bottom: 30px;
+  }
+  
+  .product_categories h4 {
+    font-size: 18px;
+  }
+  
+  /* Product Pagination Mobile */
+  .product__pagination {
+    text-align: center;
+  }
+  
+  .product__pagination a {
+    padding: 8px 12px;
+    margin: 0 2px;
+  }
+}
+
+/* Extra Small Mobile Devices */
+@media (max-width: 480px) {
+  /* Hero Section Extra Small */
+  .hero__text_f .tagline_f {
+    font-size: 20px !important;
+  }
+  
+  .hero__text_f p {
+    font-size: 13px;
+  }
+  
+  /* Buttons Extra Small */
+  .btn-hero {
+    font-size: 14px;
+    padding: 12px 20px;
+  }
+  
+  /* Video Cards Extra Small */
+  .video-card-container {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding: 0 10px;
+  }
+  
+  /* Modal Extra Small */
+  .video-modal-content {
+    width: 98%;
+    margin: 10px;
+  }
+  
+  .modal_title {
+    font-size: 14px;
+  }
+  
+  /* Forms Extra Small */
+  .quote-form-container,
+  .contact-form {
+    padding: 15px 10px;
+  }
+  
+  .quote-form {
+    padding: 15px;
+  }
+  
+  /* Navigation Extra Small */
+  .header__logo img {
+    max-height: 35px;
+  }
+  
+  .header__top__left p {
+    font-size: 11px;
+  }
+  
+  /* Footer Extra Small */
+  .footer__widget h6 {
+    font-size: 14px;
+  }
+  
+  /* Team Extra Small */
+  .team__grid {
+    grid-template-columns: 1fr;
+  }
+  
+  /* Counter Extra Small */
+  .counter-item h2 {
+    font-size: 28px;
+  }
+  
+  .counter-item p {
+    font-size: 12px;
+  }
+}
+
+/* Tablet Portrait */
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* Hero Section Tablet */
+  .hero__text_f .tagline_f {
+    font-size: 36px;
+  }
+  
+  /* Video Cards Tablet */
+  .video-card-container {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+  }
+  
+  /* Team Section Tablet */
+  .team__grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+  
+  /* Why Choose Us Tablet */
+  .why-choose-us-item {
+    flex: 1 1 45%;
+    max-width: 45%;
+  }
+  
+  /* Core Values Tablet */
+  .core-value-item {
+    flex: 1 1 45%;
+    max-width: 45%;
+  }
+}
   
   .product-image img {
     width: 100px;

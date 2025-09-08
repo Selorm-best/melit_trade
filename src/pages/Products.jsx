@@ -103,7 +103,7 @@ const Products = () => {
         <section className="shop spad">
           <div className="container prod">
             <div className="row">
-              <div className="col-lg-3">
+              <div className="col-lg-3 col-md-12">
                 <div className="shop__sidebar">
                   {/* Search removed as requested */}
                   <div className="product_categories">
@@ -123,7 +123,7 @@ const Products = () => {
                   </div>
                 </div>
               </div>
-              <div className="col-lg-9">
+              <div className="col-lg-9 col-md-12">
                 <div className="shop__product__option">
                   <div className="row">
                     <div className="col-lg-6 col-md-6 col-sm-6">
