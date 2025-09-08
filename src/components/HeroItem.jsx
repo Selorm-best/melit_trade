@@ -24,12 +24,12 @@ const HeroItem = ({image, tagline1, tagline2, text}) => {
             <h6>{tagline1}</h6>
        
             <p>{text}</p>
-            <div className="d-flex flex-wrap">
+            <div className="d-flex align-items-center gap-3">
               <Link to={"/quotes"} className="primary-btn btn-hero">
                 <FontAwesomeIcon icon={faPaperPlane} />
                 <span>Get a Quote</span>
               </Link>
-              <Link to={"/tracking"} className="primary-btn btn-hero" style={{ marginLeft: '12px', marginTop: '10px' }}>
+              <Link to={"/tracking"} className="primary-btn btn-hero">
                 <FontAwesomeIcon icon={faTruckFast} />
                 <span>Track Package</span>
               </Link>

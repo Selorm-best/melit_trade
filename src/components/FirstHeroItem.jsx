@@ -67,12 +67,12 @@ const FirstHeroItem = ({ image }) => {
               <h2 className="tagline_f"><span className='w_wrap'>{hero?.headline || displayText}</span></h2>
          
               <p>{hero?.subtext || "At Melit Trade, we bridge the gap between you and the world, providing seamless procurement solutions tailored to your needs. Our dedicated team ensures precision, efficiency, and reliability in every transaction."}</p>
-              <div className="d-flex flex-wrap justify-content-center">
-                <Link to={hero?.ctaPrimary?.path || "/quotes"}  className="primary-btn btn-hero">
+              <div className="d-flex justify-content-center align-items-center gap-3">
+                <Link to={hero?.ctaPrimary?.path || "/quotes"} className="primary-btn btn-hero">
                   <FontAwesomeIcon icon={faPaperPlane} />
                   <span>{hero?.ctaPrimary?.label || 'Get a Quote'}</span>
                 </Link>
-                <Link to={hero?.ctaSecondary?.path || "/tracking"} className="primary-btn btn-hero" style={{ marginLeft: '12px', marginTop: '10px' }}>
+                <Link to={hero?.ctaSecondary?.path || "/tracking"} className="primary-btn btn-hero">
                   <FontAwesomeIcon icon={faTruckFast} />
                   <span>{hero?.ctaSecondary?.label || 'Track Package'}</span>
                 </Link>
