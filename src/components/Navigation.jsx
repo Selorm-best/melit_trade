@@ -13,7 +13,6 @@ const Navigation = () => {
 
    const getActiveClass = (path) => location.pathname === path ? 'active' : '';
 
-
     const [isMenuActive, setIsMenuActive] = useState(false);
 
     const toggleMenu = () => {
@@ -25,71 +24,7 @@ const Navigation = () => {
   return (
     <div>
   
-  {/* Offcanvas Menu Begin */}
-  <div>
-      
-    
-      <div className={`offcanvas-menu-overlay ${isMenuActive ? 'active' : ''}`} onClick={toggleMenu} />
-      <div className={`offcanvas-menu-wrapper ${isMenuActive ? 'active' : ''}`}>
-        <div className="offcanvas__option">
-          <div className="offcanvas__links">
-            {/* <a href="#">Sign in</a>
-            <a href="#">FAQs</a> */}
-          </div>
-          <div className="offcanvas__top__hover">
-            <span>GH₵ <i className="arrow_carrot-down" /></span>
-            <ul>
-              <li>USD</li>
-              <li>EUR</li>
-              <li>CN¥</li>
-            </ul>
-          </div>
-        </div>
-        <div className="offcanvas__nav__option">
-            <a href="#"><FontAwesomeIcon icon={faSearch} style={{color:'#002240'}}/>
-                  </a>
-                  {/* <a href="#">
-                   <FontAwesomeIcon icon={faHeartRegular} style={{color:'#002240'}}/>
-            </a> */}
-                  
-
-        
-        </div>
-       
-
-
-            <div className="wrapper">	<nav id="sidebar_e"> 
-            <ul className="list-unstyled components">
-           
-            <li className={getActiveClass("/")}><Link to="/">Home</Link></li>
-              <li className={getActiveClass("/products")}><Link to="/products">Products</Link></li>
-              <li className={getActiveClass("/quotes")}><Link to="/quotes">Get Quote</Link></li>
-              <li className={getActiveClass("/tracking")}><Link to="/tracking">Tracking</Link></li>
-              <li className={getActiveClass("/about")}><Link to="/about">About Us</Link></li>
-            <li>	<a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" className="dropdown-toggle">More</a>	
-            <ul className="collapse list-unstyled" id="pageSubmenu" >
-              <div className="menu-back">
-              <li className={getActiveClass("/blog")}><Link to="#">Blog</Link></li>
-              <li className={getActiveClass("/contact")}><Link to="/contact">Contact Us</Link></li>
-             
-              <li className={getActiveClass("/checkout")}><Link to="/#">Process Order</Link></li>
-              <li className={getActiveClass("/blog-details")}><Link to="#">Blog Details</Link></li>
-            </div>
-            
-            </ul>	
-            
-            </li>
-            </ul>		
-            </nav>	
-            
-            </div>
-       
-        <div className="offcanvas__text">
-          <b></b><p>Seamless procurement experience, every time.</p>
-        </div>
-      </div>
-    </div>
-  {/* Offcanvas Menu End */}
+  
   {/* Header Section Begin */}
   <header className="header">
     <div className="header__top">

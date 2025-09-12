@@ -18,8 +18,8 @@ const Team = () => {
     const fetchData = async () => {
       try {
         const [teamRes, partnersRes] = await Promise.all([
-          fetch('/api/team'),
-          fetch('/api/partners')
+          fetch('/api/team', { credentials: 'omit' }),
+          fetch('/api/partners', { credentials: 'omit' })
         ]);
         if (teamRes.ok) {
           const teamJson = await teamRes.json();

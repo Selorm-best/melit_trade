@@ -40,7 +40,9 @@ const FirstHeroItem = ({ image }) => {
     const loadHome = async () => {
       try {
         console.log('Fetching home content from /api/home...');
-        const res = await fetch('/api/home');
+        const res = await fetch('/api/home', {
+          credentials: 'omit' // Don't send cookies with this public API call
+        });
         console.log('Home response status:', res.status);
         if (res.ok) {
           const data = await res.json();

@@ -8,9 +8,25 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Middleware
-app.use(cors());
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(cors({
+  origin: ['http://localhost:3000', 'http://localhost:5000'],
+  credentials: true,
+  optionsSuccessStatus: 200
+}));
+
+// Custom middleware to handle large headers gracefully
+app.use((req, res, next) => {
+  // Log header size for debugging
+  const headerSize = JSON.stringify(req.headers).length;
+  if (headerSize > 8192) { // 8KB
+    console.log(`Large header detected: ${headerSize} bytes`);
+  }
+  next();
+});
+
+// Increase header size limits
+app.use(express.json({ limit: '10mb' }));
+app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 app.use(cookieParser());
 
 // Static assets
@@ -38,15 +54,29 @@ app.get('*', (req, res) => {
 
 // Error handling middleware
 app.use((err, req, res, next) => {
-  console.error(err.stack);
+  console.error('Error occurred:', err.message);
+  console.error('Stack trace:', err.stack);
+  
+  // Handle specific error types
+  if (err.code === 'HPE_HEADER_OVERFLOW' || err.status === 431) {
+    console.error('Header size too large error detected');
+    return res.status(431).json({ 
+      error: 'Request header fields too large',
+      message: 'Please clear your browser cookies and try again'
+    });
+  }
+  
   res.status(500).render('error', { error: 'Something went wrong!' });
 });
 
-// Start server
-app.listen(PORT, () => {
+// Start server with increased header size limit
+const server = app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
   console.log(`Admin panel: http://localhost:${PORT}/admin`);
   console.log(`API endpoints: http://localhost:${PORT}/api`);
 });
+
+// Increase HTTP header size limit to prevent 431 errors
+server.maxHeadersCount = 2000; // Increase max headers count
 
 module.exports = app;

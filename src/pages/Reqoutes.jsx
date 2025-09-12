@@ -6,8 +6,12 @@ import QuoteForm from "../components/QuoteForm"
 const Reqoutes = () => {
   return (
     <> 
-      <Navigation/>
-       {/* Breadcrumb Section Begin */}
+      
+      
+      <div className="quotes-page-navigation">
+        <Navigation/>
+      </div>
+       
         <section className="breadcrumb-option">
             <div className="container">
             <div className="row">
@@ -23,7 +27,7 @@ const Reqoutes = () => {
             </div>
             </div>
         </section>
-        {/* Breadcrumb Section End */}
+        
         <QuoteForm />
     </>
   )

@@ -1,4 +1,5 @@
 
+import { Link } from "react-router-dom";
 
 const BlogItem = ({blog_item, index}) => {
   return (
@@ -9,7 +10,9 @@ const BlogItem = ({blog_item, index}) => {
             <div className="blog__item__text">
               <span><img src="img/icon/calendar.png" alt /> {blog_item.date}</span>
               <h5>{blog_item.info}</h5>
-              <a key={index} href="#">Read More</a>
+              <Link to={`/blog/${blog_item.id}`} className="blog__item__readmore">
+                Read More
+              </Link>
             </div>
           </div>
         </div>

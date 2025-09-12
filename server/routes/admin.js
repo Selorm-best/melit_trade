@@ -75,6 +75,13 @@ router.get('/dashboard', async (req, res) => {
   }
 });
 
+/**
+ * GET /admin/blog - Render blog management page
+ */
+router.get('/blog', (req, res) => {
+  res.render('blog');
+});
+
 // Team Members Management
 router.get('/team', async (req, res) => {
   try {
@@ -552,6 +559,174 @@ router.delete('/deals/:id', async (req, res) => {
     res.json({ success: true });
   } catch (error) {
     res.status(500).json({ error: 'Failed to delete deal' });
+  }
+});
+
+// ===============================
+// BLOG MANAGEMENT ROUTES
+// ===============================
+
+/**
+ * GET /admin/blog - Get all blog posts (including unpublished)
+ */
+router.get('/blog', async (req, res) => {
+  try {
+    const blogs = await readData('blog.json');
+    res.json(blogs);
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to fetch blog data' });
+  }
+});
+
+/**
+ * GET /admin/blog/:id - Get a specific blog post by ID
+ */
+router.get('/blog/:id', async (req, res) => {
+  try {
+    const blogs = await readData('blog.json');
+    const blog = findById(blogs, req.params.id);
+    
+    if (!blog) {
+      return res.status(404).json({ error: 'Blog post not found' });
+    }
+    
+    res.json(blog);
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to fetch blog post' });
+  }
+});
+
+/**
+ * POST /admin/blog - Create a new blog post
+ */
+router.post('/blog', upload.single('image'), async (req, res) => {
+  try {
+    const { 
+      title, 
+      excerpt, 
+      content, 
+      author, 
+      date, 
+      category, 
+      tags, 
+      published, 
+      featured 
+    } = req.body;
+    
+    const imagePath = req.file ? `/uploads/${req.file.filename}` : null;
+    
+    const blogs = await readData('blog.json');
+    const newBlog = {
+      id: generateId(),
+      title,
+      excerpt,
+      content,
+      author,
+      date: date || new Date().toISOString().split('T')[0],
+      image: imagePath || 'img/blog/default.jpg',
+      category,
+      tags: tags ? tags.split(',').map(tag => tag.trim()) : [],
+      published: published === 'true',
+      featured: featured === 'true',
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString()
+    };
+    
+    blogs.push(newBlog);
+    await writeData('blog.json', blogs);
+    
+    res.json({ success: true, blog: newBlog });
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to create blog post' });
+  }
+});
+
+/**
+ * PUT /admin/blog/:id - Update a blog post
+ */
+router.put('/blog/:id', upload.single('image'), async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { 
+      title, 
+      excerpt, 
+      content, 
+      author, 
+      date, 
+      category, 
+      tags, 
+      published, 
+      featured 
+    } = req.body;
+    
+    const imagePath = req.file ? `/uploads/${req.file.filename}` : null;
+    
+    let blogs = await readData('blog.json');
+    const blog = findById(blogs, id);
+    
+    if (!blog) {
+      return res.status(404).json({ error: 'Blog post not found' });
+    }
+    
+    // Delete old image if new one uploaded
+    if (imagePath && blog.image && blog.image.startsWith('/uploads/')) {
+      try {
+        await fs.unlink(path.join(__dirname, '../public', blog.image));
+      } catch (err) {
+        console.log('Old image not found for deletion');
+      }
+    }
+    
+    blogs = updateById(blogs, id, {
+      title,
+      excerpt,
+      content,
+      author,
+      date: date || blog.date,
+      category,
+      tags: tags ? tags.split(',').map(tag => tag.trim()) : blog.tags,
+      published: published === 'true',
+      featured: featured === 'true',
+      updatedAt: new Date().toISOString(),
+      ...(imagePath && { image: imagePath })
+    });
+    
+    await writeData('blog.json', blogs);
+    res.json({ success: true, blog: findById(blogs, id) });
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to update blog post' });
+  }
+});
+
+/**
+ * DELETE /admin/blog/:id - Delete a blog post
+ */
+router.delete('/blog/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    
+    let blogs = await readData('blog.json');
+    const blog = findById(blogs, id);
+    
+    if (!blog) {
+      return res.status(404).json({ error: 'Blog post not found' });
+    }
+    
+    // Delete associated image
+    if (blog.image && blog.image.startsWith('/uploads/')) {
+      try {
+        await fs.unlink(path.join(__dirname, '../public', blog.image));
+      } catch (err) {
+        console.log('Image not found for deletion');
+      }
+    }
+    
+    blogs = deleteById(blogs, id);
+    await writeData('blog.json', blogs);
+    
+    res.json({ success: true });
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to delete blog post' });
   }
 });
 

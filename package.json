@@ -31,15 +31,24 @@
     "ejs": "^3.1.9",
     "cookie-parser": "^1.4.6",
     "dotenv": "^16.3.1",
-    "cors": "^2.8.5"
+    "cors": "^2.8.5",
+    "helmet": "^7.1.0",
+    "compression": "^1.7.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "cross-env GENERATE_SOURCEMAP=false react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "server": "node server/server.js",
-    "dev": "concurrently \"npm run start\" \"npm run server\""
+    "server": "node --max-http-header-size=32768 server/server.js",
+    "server:prod": "node server/server.prod.js",
+    "dev": "concurrently \"npm run start\" \"npm run server\"",
+    "deploy": "chmod +x scripts/deploy.sh && ./scripts/deploy.sh",
+    "docker:build": "docker build -t melit-trade .",
+    "docker:run": "docker run -p 5000:5000 --env-file .env melit-trade",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "docker:logs": "docker-compose logs -f"
   },
   "eslintConfig": {
     "extends": [
@@ -63,5 +72,5 @@
     "concurrently": "^8.2.2",
     "cross-env": "^7.0.3"
   },
-  "proxy": "http://localhost:5001"
+  "proxy": "http://localhost:5000"
 }

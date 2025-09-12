@@ -1,18 +1,186 @@
 [
   {
-    "id": "mfbjpryaqf6tdp80t5",
-    "productName": "Standing Fan",
-    "category": "Home Appliance",
-    "price": "22",
-    "vid": "videos/na.mp4",
-    "img": "/uploads/1757361588398-502477001.jpg"
+    "id": "p1",
+    "img": "img/product/laptops.jpg",
+    "vid": "videos/electronics.mp4",
+    "productName": "High-performance Laptops",
+    "price": "$192",
+    "category": "Electronics and Electricals"
   },
   {
-    "id": "mfblkv4s1xf0h6s8ysp",
-    "productName": "gaa",
-    "category": "shop",
-    "price": "11",
-    "vid": "videos/na.mp4",
-    "img": "/uploads/1757364718467-739531222.jpg"
+    "id": "p2",
+    "img": "img/product/Electricals.jpg",
+    "vid": "videos/electricals.mp4",
+    "productName": "High-Quality Electrical Wires",
+    "price": "$192",
+    "category": "Electronics and Electricals"
+  },
+  {
+    "id": "p3",
+    "img": "img/product/blender.jpg",
+    "vid": "videos/household.mp4",
+    "productName": "High-Performance Blenders",
+    "price": "$192",
+    "category": "Household"
+  },
+  {
+    "id": "p4",
+    "img": "img/product/televisions.jpg",
+    "vid": "videos/electronics.mp4",
+    "productName": "Ultra HD Televisions",
+    "price": "$1,092",
+    "category": "Electronics and Electricals"
+  },
+  {
+    "id": "p5",
+    "img": "img/product/electronics-5.jpg",
+    "vid": "videos/electronics.mp4",
+    "productName": "Sleek and Powerful Tablets",
+    "price": "$599",
+    "category": "Electronics and Electricals"
+  },
+  {
+    "id": "p6",
+    "img": "img/product/Gaming.jpg",
+    "vid": "videos/electronics.mp4",
+    "productName": "Next-Gen Gaming Consoles",
+    "price": "$602",
+    "category": "Electronics and Electricals"
+  },
+  {
+    "id": "p7",
+    "img": "img/product/machinery-2.jpg",
+    "vid": "videos/agric.mp4",
+    "productName": "Heavy-Duty Trucks",
+    "price": "$1,902",
+    "category": "Agricultural Products and Machinery"
+  },
+  {
+    "id": "p8",
+    "img": "img/product/furniture.jpg",
+    "vid": "videos/furniture.mp4",
+    "productName": "High Quality Home Furniture",
+    "price": "$602",
+    "category": "Furniture"
+  },
+  {
+    "id": "p9",
+    "img": "img/product/clothing-3.jpg",
+    "vid": "videos/clothing.mp4",
+    "productName": "Elegant Jewelry Collections",
+    "price": "$602",
+    "category": "Clothing and Fashion Accessories"
+  },
+  {
+    "id": "p10",
+    "img": "img/product/machinery.jpg",
+    "vid": "videos/agric.mp4",
+    "productName": "Durable Agricultural Machines",
+    "price": "$602",
+    "category": "Agricultural Products and Machinery"
+  },
+  {
+    "id": "p11",
+    "img": "img/product/lighting.jpg",
+    "vid": "videos/electricals.mp4",
+    "productName": "Energy-Efficient Lighting",
+    "price": "$602",
+    "category": "Electronics and Electricals"
+  },
+  {
+    "id": "p12",
+    "img": "img/product/office_furniture.jpg",
+    "vid": "videos/furniture.mp4",
+    "productName": "Ergonomic Office Furniture",
+    "price": "$602",
+    "category": "Furniture"
+  },
+  {
+    "id": "p13",
+    "img": "img/product/ups.jpg",
+    "vid": "videos/electricals.mp4",
+    "productName": "Reliable Uninterruptible Power Supplies",
+    "price": "$602",
+    "category": "Electronics and Electricals"
+  },
+  {
+    "id": "p14",
+    "img": "img/product/solar-products.jpg",
+    "vid": "videos/solar.mp4",
+    "productName": "High Quality Solar Products",
+    "price": "$602",
+    "category": "Renewable Energy Products"
+  },
+  {
+    "id": "p15",
+    "img": "img/product/Stationary.jpg",
+    "vid": "videos/education.mp4",
+    "productName": "Bestselling Books",
+    "price": "$602",
+    "category": "Educational Materials"
+  },
+  {
+    "id": "p16",
+    "img": "img/product/dresss.jpg",
+    "vid": "videos/clothing.mp4",
+    "productName": "Trendy Clothing",
+    "price": "$602",
+    "category": "Clothing and Fashion Accessories"
+  },
+  {
+    "id": "p17",
+    "img": "img/product/shoes.jpg",
+    "vid": "videos/clothing.mp4",
+    "productName": "High Quality Shoes",
+    "price": "$602",
+    "category": "Clothing and Fashion Accessories"
+  },
+  {
+    "id": "p18",
+    "img": "img/product/motor.jpg",
+    "vid": "videos/automobile.mp4",
+    "productName": "Motorbikes and Automobiles",
+    "price": "$602",
+    "category": "Automobiles and Auto Parts"
+  },
+  {
+    "id": "p19",
+    "img": "img/product/fitness.jpg",
+    "vid": "videos/fitness.mp4",
+    "productName": "State-of-the-Art Fitness Machines",
+    "price": "$602",
+    "category": "Fitness and Sports Equipment"
+  },
+  {
+    "id": "p20",
+    "img": "img/product/home_decor.jpg",
+    "vid": "videos/home_decor.mp4",
+    "productName": "Stylish Room Decor",
+    "price": "$602",
+    "category": "Home Decor and Furnishings"
+  },
+  {
+    "id": "p21",
+    "img": "img/product/toys.jpg",
+    "vid": "videos/toys.mp4",
+    "productName": "Fun and Educational Toys",
+    "price": "$602",
+    "category": "Baby Products and Toys"
+  },
+  {
+    "id": "p22",
+    "img": "img/product/auto_parts.jpg",
+    "vid": "videos/automobile.mp4",
+    "productName": "Durable Automobile Parts",
+    "price": "$602",
+    "category": "Automobiles and Auto Parts"
+  },
+  {
+    "id": "p23",
+    "img": "img/product/microwaves.jpg",
+    "vid": "videos/household.mp4",
+    "productName": "Cooking Appliances",
+    "price": "$602",
+    "category": "Household"
   }
 ]

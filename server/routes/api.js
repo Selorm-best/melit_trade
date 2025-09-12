@@ -84,7 +84,10 @@ router.get('/deals', async (req, res) => {
  */
 router.get('/products', async (req, res) => {
   try {
+    console.log('Products API endpoint called');
+    console.log('Request headers:', req.headers);
     const products = await readData('products.json');
+    console.log('Products loaded:', products.length, 'items');
     res.json(products);
   } catch (error) {
     console.error('API Error - Products:', error);
@@ -106,6 +109,59 @@ router.get('/home', async (req, res) => {
 });
 
 /**
+ * GET /api/blog - Get all published blog posts
+ * Public endpoint for frontend to fetch blog data
+ */
+router.get('/blog', async (req, res) => {
+  try {
+    const blogs = await readData('blog.json');
+    // Only return published posts
+    const publishedBlogs = blogs.filter(blog => blog.published === true);
+    res.json(publishedBlogs);
+  } catch (error) {
+    console.error('API Error - Blog:', error);
+    res.status(500).json({ error: 'Failed to fetch blog data' });
+  }
+});
+
+/**
+ * GET /api/blog/:id - Get a specific blog post by ID
+ * Public endpoint for frontend to fetch individual blog post
+ */
+router.get('/blog/:id', async (req, res) => {
+  try {
+    const blogs = await readData('blog.json');
+    const blogId = parseInt(req.params.id);
+    const blog = blogs.find(b => b.id === blogId && b.published === true);
+    
+    if (!blog) {
+      return res.status(404).json({ error: 'Blog post not found' });
+    }
+    
+    res.json(blog);
+  } catch (error) {
+    console.error('API Error - Blog Detail:', error);
+    res.status(500).json({ error: 'Failed to fetch blog post' });
+  }
+});
+
+/**
+ * GET /api/blog/featured - Get featured blog posts
+ * Public endpoint for frontend to fetch featured blog posts
+ */
+router.get('/blog/featured', async (req, res) => {
+  try {
+    const blogs = await readData('blog.json');
+    // Only return published and featured posts
+    const featuredBlogs = blogs.filter(blog => blog.published === true && blog.featured === true);
+    res.json(featuredBlogs);
+  } catch (error) {
+    console.error('API Error - Featured Blog:', error);
+    res.status(500).json({ error: 'Failed to fetch featured blog data' });
+  }
+});
+
+/**
  * GET /api/health - Health check endpoint
  * Simple endpoint to verify API is running
  */
@@ -114,6 +170,17 @@ router.get('/health', (req, res) => {
     status: 'OK', 
     timestamp: new Date().toISOString(),
     service: 'Melit Trade API'
+  });
+});
+
+/**
+ * GET /api/test - Simple test endpoint
+ * Test endpoint to verify basic connectivity
+ */
+router.get('/test', (req, res) => {
+  res.json({ 
+    message: 'API is working!',
+    timestamp: new Date().toISOString()
   });
 });
 

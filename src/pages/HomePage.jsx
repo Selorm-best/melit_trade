@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Hero from '../components/Hero'
 import { Link } from 'react-router-dom'
 import BannerItem from '../components/BannerItem';
@@ -73,11 +73,34 @@ const videoData = [
   // Add more video data here
 ];
 
-const blog = [{ img: 'img/blog/blog-1.jpg', date: '19th December 2023', info: 'Which Inventory Management Systems Are Leading the Industry?' },
-{ img: 'img/blog/blog-2.png', date: '16th January 2023', info: 'Sustainable Procurement: Strategies for Long-Term Success' },
-{ img: 'img/blog/blog-3.jpg', date: '15th December 2023', info: 'The Financial Benefits of Streamlined Procurement Processes' }]
-
 const HomePage = () => {
+  const [blogs, setBlogs] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetchBlogs();
+  }, []);
+
+  const fetchBlogs = async () => {
+    try {
+      const response = await fetch('/api/blog/featured', {
+        credentials: 'omit'
+      });
+      
+      if (!response.ok) {
+        throw new Error('Failed to fetch blogs');
+      }
+      
+      const blogData = await response.json();
+      setBlogs(blogData);
+    } catch (error) {
+      console.error('Error fetching blogs:', error);
+      // Fallback to empty array if API fails
+      setBlogs([]);
+    } finally {
+      setLoading(false);
+    }
+  };
   
   return (
     <div>
@@ -213,13 +236,22 @@ const HomePage = () => {
         </div>
       </div>
       <div className="row">
-
-      {blog.map((blog_item, index) => (
-          <BlogItem key={index} blog_item={blog_item} index={index} />
-        ))}
-      
-      
-   
+        {loading ? (
+          <div className="col-12 text-center">
+            <div className="spinner-border text-primary" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </div>
+            <p className="mt-3">Loading blog posts...</p>
+          </div>
+        ) : blogs.length > 0 ? (
+          blogs.map((blog_item, index) => (
+            <BlogItem key={index} blog_item={blog_item} index={index} />
+          ))
+        ) : (
+          <div className="col-12 text-center">
+            <p>No blog posts available at the moment.</p>
+          </div>
+        )}
       </div>
     </div>
   </section>

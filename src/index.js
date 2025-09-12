@@ -11,7 +11,8 @@ import Products from './pages/Products';
 import Contact from './pages/Contact';
 
 import Tracking from './pages/Tracking';
-import QuoteForm from './components/QuoteForm';
+import Reqoutes from './pages/Reqoutes';
+import BlogDetail from './components/BlogDetail';
 import "core-js/stable";
 import "regenerator-runtime/runtime";
 import 'core-js/features/promise';
@@ -45,7 +46,7 @@ children: [
 },
 {
   path: "/quotes",
-  element: <QuoteForm />
+  element: <Reqoutes />
 
 },
 {
@@ -56,6 +57,10 @@ children: [
 {
   path: "/contact",
   element: <Contact />
+},
+{
+  path: "/blog/:id",
+  element: <BlogDetail />
 },
 
 ]
