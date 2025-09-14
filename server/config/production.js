@@ -1,58 +1,32 @@
-// Production configuration
 module.exports = {
-  // Server settings
   port: process.env.PORT || 5000,
-  nodeEnv: process.env.NODE_ENV || 'production',
-  
-  // Security settings
   cors: {
-    origin: process.env.CORS_ORIGIN || 'https://yourdomain.com',
+    origin: [
+      'https://melit-trade.vercel.app',
+      'https://melit-trade-git-main-yourusername.vercel.app',
+      'https://melit-trade-git-develop-yourusername.vercel.app',
+      'http://localhost:3000', // For local development
+      'http://localhost:5000'  // For local development
+    ],
     credentials: true,
     optionsSuccessStatus: 200
   },
-  
-  // JWT settings
   jwt: {
-    secret: process.env.JWT_SECRET || 'fallback-secret-change-in-production',
-    expiresIn: process.env.JWT_EXPIRES_IN || '24h'
+    secret: process.env.JWT_SECRET || 'fallback-secret-key-change-in-production',
+    expiresIn: '24h'
   },
-  
-  // File upload settings
-  upload: {
-    maxFileSize: parseInt(process.env.MAX_FILE_SIZE) || 5 * 1024 * 1024, // 5MB
-    allowedTypes: ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'],
-    uploadPath: process.env.UPLOAD_PATH || './public/uploads'
+  uploads: {
+    maxFileSize: 10 * 1024 * 1024, // 10MB
+    allowedTypes: ['image/jpeg', 'image/png', 'image/gif', 'image/webp'],
+    destination: 'public/uploads'
   },
-  
-  // Database settings (for future database integration)
-  database: {
-    url: process.env.DATABASE_URL,
-    options: {
-      useNewUrlParser: true,
-      useUnifiedTopology: true
-    }
+  rateLimit: {
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    max: 100, // limit each IP to 100 requests per windowMs
+    message: 'Too many requests from this IP, please try again later.'
   },
-  
-  // Email settings
-  email: {
-    host: process.env.EMAIL_HOST,
-    port: process.env.EMAIL_PORT || 587,
-    secure: process.env.EMAIL_SECURE === 'true',
-    auth: {
-      user: process.env.EMAIL_USER,
-      pass: process.env.EMAIL_PASS
-    }
-  },
-  
-  // Admin settings
-  admin: {
-    email: process.env.ADMIN_EMAIL || 'admin@melittrade.com',
-    password: process.env.ADMIN_PASSWORD || 'admin123'
-  },
-  
-  // Logging settings
-  logging: {
-    level: process.env.LOG_LEVEL || 'info',
-    enableConsole: process.env.NODE_ENV !== 'production'
+  security: {
+    helmet: true,
+    trustProxy: true
   }
 };
