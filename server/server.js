@@ -5,11 +5,11 @@ const cors = require('cors');
 require('dotenv').config();
 
 const app = express();
-const PORT = process.env.PORT || 5001;
+const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(cors({
-  origin: ['http://localhost:3000', 'http://localhost:5001'],
+  origin: ['http://localhost:3000', 'http://localhost:5000'],
   credentials: true,
   optionsSuccessStatus: 200
 }));
