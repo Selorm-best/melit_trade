@@ -18,6 +18,27 @@ const Navigation = () => {
     const toggleMenu = () => {
       setIsMenuActive(!isMenuActive);
     };
+
+    // Close menu when clicking outside
+    useEffect(() => {
+      const handleClickOutside = (event) => {
+        if (isMenuActive && !event.target.closest('.header__menu') && !event.target.closest('.canvas__open')) {
+          setIsMenuActive(false);
+        }
+      };
+
+      if (isMenuActive) {
+        document.addEventListener('click', handleClickOutside);
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+      } else {
+        document.body.style.overflow = 'unset';
+      }
+
+      return () => {
+        document.removeEventListener('click', handleClickOutside);
+        document.body.style.overflow = 'unset';
+      };
+    }, [isMenuActive]);
  
     
  
@@ -64,13 +85,13 @@ const Navigation = () => {
             </div>
           </div>
           <div className="col-lg-7 col-md-6">
-            <nav className="header__menu">
+            <nav className={`header__menu ${isMenuActive ? 'active' : ''}`}>
                 <ul>
-                  <li className={getActiveClass("/")}><Link to="/">Home</Link></li>
-                  <li className={getActiveClass("/products")}><Link to="/products">Products</Link></li>
-                  <li className={getActiveClass("/quotes")}><Link to="/quotes">Get Quote</Link></li>
-                  <li className={getActiveClass("/about")}><Link to="/about">About Us</Link></li>
-                  <li className={getActiveClass("/contact")}><Link to="/contact">Contact Us</Link></li>
+                  <li className={getActiveClass("/")}><Link to="/" onClick={() => setIsMenuActive(false)}>Home</Link></li>
+                  <li className={getActiveClass("/products")}><Link to="/products" onClick={() => setIsMenuActive(false)}>Products</Link></li>
+                  <li className={getActiveClass("/quotes")}><Link to="/quotes" onClick={() => setIsMenuActive(false)}>Get Quote</Link></li>
+                  <li className={getActiveClass("/about")}><Link to="/about" onClick={() => setIsMenuActive(false)}>About Us</Link></li>
+                  <li className={getActiveClass("/contact")}><Link to="/contact" onClick={() => setIsMenuActive(false)}>Contact Us</Link></li>
                   
                 </ul>
               </nav>

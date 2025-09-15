@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaperPlane, faTruckFast } from '@fortawesome/free-solid-svg-icons';
+import { publicApiCall, apiConfig } from '../config/api';
 
 
 const FirstHeroItem = ({ image }) => {
@@ -39,18 +40,10 @@ const FirstHeroItem = ({ image }) => {
   useEffect(() => {
     const loadHome = async () => {
       try {
-        console.log('Fetching home content from /api/home...');
-        const res = await fetch('/api/home', {
-          credentials: 'omit' // Don't send cookies with this public API call
-        });
-        console.log('Home response status:', res.status);
-        if (res.ok) {
-          const data = await res.json();
-          console.log('Home data:', data);
-          setHero(data?.hero || null);
-        } else {
-          console.error('Failed to fetch home content:', res.statusText);
-        }
+        console.log('Fetching home content from API...');
+        const data = await publicApiCall(apiConfig.endpoints.home);
+        console.log('Home data:', data);
+        setHero(data?.hero || null);
       } catch (e) {
         console.error('Error fetching home content:', e);
       }

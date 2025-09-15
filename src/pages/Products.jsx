@@ -4,6 +4,7 @@ import NiceSelect from '../components/NiceSelect';
 import VideoCardContainer from '../components/VideoModal';
 import VideoCard from '../components/VideoCard';
 import { Link } from 'react-router-dom';
+import { publicApiCall, apiConfig } from '../config/api';
 
 const categories = [
   "All",
@@ -43,35 +44,11 @@ const Products = () => {
       try {
         setLoading(true);
         setError(null);
-        console.log('Fetching products from /api/products...');
+        console.log('Fetching products from API...');
         
-        // Try different fetch approaches
-        let res;
-        try {
-          // First try with minimal headers
-          res = await fetch('/api/products', {
-            method: 'GET',
-            headers: {
-              'Accept': 'application/json'
-            }
-          });
-        } catch (headerError) {
-          console.log('Header error, trying without headers...');
-          // If headers cause issues, try without any headers
-          res = await fetch('/api/products');
-        }
-        
-        console.log('Response status:', res.status);
-        if (res.ok) {
-          const data = await res.json();
-          console.log('Products data:', data);
-          setProducts(Array.isArray(data) ? data : []);
-        } else {
-          console.error('Failed to fetch products:', res.statusText);
-          setError('Failed to load products from server');
-          // Fallback to default products if API fails
-          setProducts(getDefaultProducts());
-        }
+        const data = await publicApiCall(apiConfig.endpoints.products);
+        console.log('Products data:', data);
+        setProducts(Array.isArray(data) ? data : []);
       } catch (e) {
         console.error('Error fetching products:', e);
         setError('Network error - using default products');

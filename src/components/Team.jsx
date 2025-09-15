@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { publicApiCall, apiConfig } from '../config/api';
 
 const Team = () => {
   const [teamMembers, setTeamMembers] = useState([
@@ -17,17 +18,16 @@ const Team = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [teamRes, partnersRes] = await Promise.all([
-          fetch('/api/team', { credentials: 'omit' }),
-          fetch('/api/partners', { credentials: 'omit' })
+        const [teamData, partnersData] = await Promise.all([
+          publicApiCall(apiConfig.endpoints.team).catch(() => null),
+          publicApiCall(apiConfig.endpoints.partners).catch(() => null)
         ]);
-        if (teamRes.ok) {
-          const teamJson = await teamRes.json();
-          if (Array.isArray(teamJson) && teamJson.length) setTeamMembers(teamJson);
+        
+        if (teamData && Array.isArray(teamData) && teamData.length) {
+          setTeamMembers(teamData);
         }
-        if (partnersRes.ok) {
-          const partnersJson = await partnersRes.json();
-          if (Array.isArray(partnersJson) && partnersJson.length) setPartners(partnersJson);
+        if (partnersData && Array.isArray(partnersData) && partnersData.length) {
+          setPartners(partnersData);
         }
       } catch (_) {
         // Fail silently and keep defaults
