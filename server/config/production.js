@@ -1,7 +1,7 @@
 // Production configuration
 module.exports = {
   // Server settings
-  port: process.env.PORT || 5000,
+  port: process.env.PORT || 5001,
   nodeEnv: process.env.NODE_ENV || 'production',
   
   // Security settings
