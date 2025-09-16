@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const fs = require('fs');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 require('dotenv').config();
@@ -9,7 +10,7 @@ const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(cors({
-  origin: ['http://localhost:3000', 'http://localhost:5000'],
+  origin: ['http://localhost:3000', 'http://localhost:5000', 'https://melit-trade.com'],
   credentials: true,
   optionsSuccessStatus: 200
 }));
@@ -31,7 +32,14 @@ app.use(cookieParser());
 
 // Static assets
 app.use('/uploads', express.static(path.join(__dirname, 'public', 'uploads')));
-app.use(express.static(path.join(__dirname, '../build')));
+
+// Serve React build only if it exists (backend can run standalone)
+const buildDir = path.join(__dirname, '../build');
+const buildIndexPath = path.join(buildDir, 'index.html');
+const hasBuild = fs.existsSync(buildIndexPath);
+if (hasBuild) {
+  app.use(express.static(buildDir));
+}
 
 // Set EJS as templating engine for admin panel
 app.set('view engine', 'ejs');
@@ -47,10 +55,17 @@ app.use('/admin', authRoutes);
 app.use('/admin', adminRoutes);
 app.use('/api', apiRoutes);
 
-// Serve React app for all other routes
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../build/index.html'));
-});
+// Serve React app for all other routes when build is present
+if (hasBuild) {
+  app.get('*', (req, res) => {
+    res.sendFile(buildIndexPath);
+  });
+} else {
+  // Health/info route for backend-only deployments
+  app.get('/', (req, res) => {
+    res.json({ status: 'OK', service: 'melit-trade-backend', build: false });
+  });
+}
 
 // Error handling middleware
 app.use((err, req, res, next) => {
