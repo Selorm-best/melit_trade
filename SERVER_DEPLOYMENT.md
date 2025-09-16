@@ -309,3 +309,4 @@ If you encounter issues:
 5. Ensure all dependencies are installed
 
 Remember to keep your JWT secret secure and never commit it to version control!
+

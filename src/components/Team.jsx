@@ -9,10 +9,12 @@ const Team = () => {
     { name: 'Jacob T. Tetteh', role: 'International Operations Manager', imgSrc: 'img/about/jacob.jpeg', location: 'China' },
     { name: 'Percy N. Hansen', role: 'Logistics Manager', imgSrc: 'img/about/Nii.jpg', location: 'Ghana' },
     { name: 'Ebenezer Tseh', role: 'Software Engineer', imgSrc: 'img/about/Eben.png', location: 'U.S.A' },
+    { name: 'Peter Ossom', role: 'Marketing Manager', imgSrc: 'img/about/Peter.png', location: 'Ghana' },
+
   ]);
   const [partners, setPartners] = useState([
-    { name: 'Mr Vitus Atanga Green', role: 'Strategic Partner', imgSrc: 'img/about/partner1.jpg', location: 'USA' },
-    { name: 'Mr Kelly Sugri Ayimbila', role: 'Strategic Partner', imgSrc: 'img/about/partner2.jpg', location: 'USA' },
+    { name: 'Mr Vitus Atanga Green', role: 'Strategic Partner', imgSrc: 'img/about/vitus.JPEG', location: 'USA' },
+    { name: 'Mr Kelly Sugri Ayimbila', role: 'Strategic Partner', imgSrc: 'img/about/kelly.jpg', location: 'USA' },
   ]);
 
   useEffect(() => {

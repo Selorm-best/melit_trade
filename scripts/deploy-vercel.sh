@@ -45,3 +45,4 @@ echo "🔧 To set environment variables:"
 echo "vercel env add REACT_APP_API_URL"
 echo ""
 echo "📚 For more information, check VERCEL_DEPLOYMENT.md"
+

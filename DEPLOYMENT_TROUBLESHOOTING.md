@@ -242,3 +242,4 @@ If deployment fails:
 3. **Vercel**: Use the dashboard to revert to previous deployment
 
 Remember: Always test locally before deploying!
+

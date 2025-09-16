@@ -19,7 +19,7 @@ const Testimonials = () => {
         {
             text: "“Our company's procurement process has significantly improved since partnering with Melit Trade. Their competitive pricing and extensive supplier network have saved us both time and money. The quality of products we receive is consistently high, and their tech-driven solutions make the entire process seamless. Highly recommended!”",
             author: "Mr Tieku Asare",
-            profession: "Operations Manager",
+            profession: "CEO, Cornfields Green Ghana Limited",
             imgSrc: "img/about/testimonial-author.jpg",
         },
         {

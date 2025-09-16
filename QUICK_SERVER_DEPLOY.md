@@ -82,3 +82,4 @@ JWT_SECRET=your-super-secret-jwt-key-here
 - **VPS**: $5-10/month
 
 Choose the option that works best for you!
+
