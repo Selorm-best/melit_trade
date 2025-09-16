@@ -29,15 +29,18 @@ const authenticateToken = (req, res, next) => {
 const checkAuth = (req, res, next) => {
   const token = req.cookies.adminToken;
 
-  if (token) {
-    jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
-      if (!err) {
-        return res.redirect('/admin/dashboard');
-      }
-    });
+  // If no token, proceed to login
+  if (!token) {
+    return next();
   }
-  
-  next();
+
+  // Verify token; redirect if valid, otherwise continue to login
+  jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
+    if (err) {
+      return next();
+    }
+    return res.redirect('/admin/dashboard');
+  });
 };
 
 module.exports = { authenticateToken, checkAuth };
