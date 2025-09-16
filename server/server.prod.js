@@ -18,11 +18,36 @@ if (config.security.helmet) {
     contentSecurityPolicy: {
       directives: {
         defaultSrc: ["'self'"],
-        styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com", "https://cdnjs.cloudflare.com"],
-        fontSrc: ["'self'", "https://fonts.gstatic.com", "https://cdnjs.cloudflare.com"],
+        styleSrc: [
+          "'self'",
+          "'unsafe-inline'",
+          "https://fonts.googleapis.com",
+          "https://cdnjs.cloudflare.com",
+          "https://cdn.jsdelivr.net",
+          "https://maxcdn.bootstrapcdn.com"
+        ],
+        fontSrc: [
+          "'self'",
+          "https://fonts.gstatic.com",
+          "https://cdnjs.cloudflare.com",
+          "https://cdn.jsdelivr.net",
+          "https://maxcdn.bootstrapcdn.com",
+          "data:"
+        ],
         imgSrc: ["'self'", "data:", "https:"],
-        scriptSrc: ["'self'", "'unsafe-inline'", "https://code.jquery.com"],
-        connectSrc: ["'self'"]
+        scriptSrc: [
+          "'self'",
+          "'unsafe-inline'",
+          "https://code.jquery.com",
+          "https://cdn.jsdelivr.net",
+          "https://cdnjs.cloudflare.com"
+        ],
+        connectSrc: [
+          "'self'",
+          "https://melittrade.com",
+          "https://*.vercel.app",
+          "https://melit-trade-8fyc.onrender.com"
+        ]
       }
     }
   }));

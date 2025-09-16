@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(cors({
-  origin: ['http://localhost:3000', 'http://localhost:5000', 'https://melit-trade.com','https://melit-trade-8fyc.onrender.com'],
+  origin: ['http://localhost:3000', 'http://localhost:5000', 'https://melit-trade.com','https://melittrade-8fyc.onrender.com'],
   credentials: true,
   optionsSuccessStatus: 200
 }));
