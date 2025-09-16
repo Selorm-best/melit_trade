@@ -1,7 +1,17 @@
 // API Configuration for Melit Trade
 // This file centralizes all API endpoints and configuration
 
-const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+// Prefer explicit env var; otherwise default to same-origin in browser, then localhost for dev tools
+const resolveApiBaseUrl = () => {
+  const envUrl = process.env.REACT_APP_API_URL;
+  if (envUrl && typeof envUrl === 'string') return envUrl.replace(/\/$/, '');
+  if (typeof window !== 'undefined' && window.location && window.location.origin) {
+    return window.location.origin.replace(/\/$/, '');
+  }
+  return 'http://localhost:5000';
+};
+
+const API_BASE_URL = resolveApiBaseUrl();
 
 export const apiConfig = {
   baseURL: API_BASE_URL,
