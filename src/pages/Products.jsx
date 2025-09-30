@@ -26,6 +26,8 @@ const Products = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [productsPerPage] = useState(6);
 
   useEffect(() => {
     const elements = document.querySelectorAll('.set-bg');
@@ -117,6 +119,7 @@ const Products = () => {
 
   const handleCategoryChange = (category) => {
     setSelectedCategory(category);
+    setCurrentPage(1);
   };
 
   const filteredVideoData = (selectedCategory === 'All'
@@ -129,6 +132,18 @@ const Products = () => {
       price: v.price,
       category: v.category
     }));
+
+  // Pagination logic
+  const totalProducts = filteredVideoData.length;
+  const totalPages = Math.ceil(totalProducts / productsPerPage);
+  const indexOfLastProduct = currentPage * productsPerPage;
+  const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+  const currentProducts = filteredVideoData.slice(indexOfFirstProduct, indexOfLastProduct);
+
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   return (
     <>
@@ -203,22 +218,33 @@ const Products = () => {
                   </div>
                 ) : (
                   <div className="video-card-container">
-                    {filteredVideoData.map((video, index) => (
-                      <VideoCard key={index} video={video} />
+                    {currentProducts.map((video, index) => (
+                      <VideoCard key={indexOfFirstProduct + index} video={video} />
                     ))}
                   </div>
                 )}
-                <div className="row">
-                  <div className="col-lg-12">
-                    <div className="product__pagination">
-                      <a className="active" href="#">1</a>
-                      <a href="#">2</a>
-                      <a href="#">3</a>
-                      <span>...</span>
-                      <a href="#">21</a>
+                {totalPages > 1 && (
+                  <div className="row">
+                    <div className="col-lg-12">
+                      <div className="product__pagination">
+                        {Array.from({ length: totalPages }, (_, i) => i + 1).map(pageNumber => (
+                          <a
+                            key={pageNumber}
+                            className={currentPage === pageNumber ? 'active' : ''}
+                            onClick={(e) => {
+                              e.preventDefault();
+                              handlePageChange(pageNumber);
+                            }}
+                            href="#"
+                            style={{ cursor: 'pointer' }}
+                          >
+                            {pageNumber}
+                          </a>
+                        ))}
+                      </div>
                     </div>
                   </div>
-                </div>
+                )}
               </div>
             </div>
           </div>
